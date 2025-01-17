@@ -8,6 +8,7 @@ import Dashboard from '../Layout/Dashboard/Dashboard';
 import AllTrainer from '../Pages/Alltrainer/allTrainer';
 import BecomeTrainer from '../Pages/Alltrainer/BecomeTrainer/BecomeTrainer';
 
+
 const router =createBrowserRouter([
     {
         path:'/',
@@ -34,7 +35,8 @@ const router =createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
-            }
+            },
+           
 
         ]
     },
