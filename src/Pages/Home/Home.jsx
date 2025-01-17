@@ -7,6 +7,7 @@ import FeatureClass from './FeaturesClass/FeatureClass';
 import Testimonials from './Testimonials/Testimonials';
 import Forum from './Forum/Forum';
 import Newsletter from './News/Newsletter';
+import About from './About/About';
 
 const Home = () => {
     const {name}=useAuth()
@@ -17,6 +18,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <Features></Features> 
+            <About></About>
             <FeatureClass></FeatureClass>
             <Testimonials></Testimonials>
             <Forum></Forum>

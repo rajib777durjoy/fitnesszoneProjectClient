@@ -8,7 +8,7 @@ import yoga from '../../../assets/Yoga.jpg'
 import bodyWeight from '../../../assets/Bodyweight.jpg'
 const Features = () => {
     return (
-        <div className='w-[100%]'>
+        <div className='w-[100%] my-4'>
             <h1 className='text-white text-4xl text-center font-bold my-5'>Featured Section</h1>
             <div className='grid grid-cols-3 w-[90%] mx-auto py-4 gap-2 '>
                 <Card className="max-w-sm" imgSrc={stritchingImg} horizontal>

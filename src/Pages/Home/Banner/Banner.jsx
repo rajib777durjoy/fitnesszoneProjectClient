@@ -8,7 +8,7 @@ const Banner = () => {
             backgroundImage: `url('${bannerBg}')`,
             backgroundSize:'cover',
           }}>
-            <div className='w-[50%] mx-auto h-[300px] translate-y-56'>
+            <div className='w-[50%] mx-auto h-[300px] translate-y-56 my-5'>
                <h1 className='text-center text-slate-400 my-3 font-extrabold text-4xl'>Welcome to FitnessZone - Your Journey to Health Starts Here!</h1>
                 <p className='text-center'>
                 At FitnessZone, we are dedicated to helping you achieve your fitness goals and live a healthier, happier life. Whether you're a beginner starting your fitness journey or an athlete looking to take it to the next level, we provide expert guidance, actionable tips, and the motivation you need. 

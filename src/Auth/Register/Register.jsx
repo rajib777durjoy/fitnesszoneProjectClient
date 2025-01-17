@@ -29,7 +29,7 @@ const Register = () => {
                     Swal.fire({
                         position: "top-center",
                         icon: "success",
-                        title: "profile updata successful",
+                        title: "Register  successful",
                         showConfirmButton: false,
                         timer: 1500
                       });
@@ -46,18 +46,21 @@ const Register = () => {
                             <Label className="text-white" value="Your Name" />
                         </div>
                         <TextInput {...register("name")} id="name" type="text" placeholder="Enter your Name" required />
+                        {errors.name && <span className="text-white">This field is required</span>}
                     </div>
                     <div>
                         <div className="mb-2 block ">
                             <Label className="text-white" value="Your email" />
                         </div>
                         <TextInput {...register("email")} id="email1" type="email" placeholder="Enter your email" required />
+                        {errors.email && <span className="text-white">This field is required</span>}
                     </div>
                     <div>
                         <div className="mb-2 block ">
                             <Label className="text-white" value="Your photoUrl" />
                         </div>
                         <TextInput {...register("photoUrl")} id="photo" type="url" placeholder="Enter your Photo url" required />
+                        {errors.photoUrl && <span className="text-white">This field is required</span>}
                     </div>
                     <div>
                         <div className="mb-2 block">
