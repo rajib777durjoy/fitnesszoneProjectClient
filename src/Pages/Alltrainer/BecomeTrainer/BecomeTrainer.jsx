@@ -5,6 +5,9 @@ import Select from 'react-select';
 import { FileInput, } from "flowbite-react";
 import { useForm } from "react-hook-form"
 import useAuth from "../../../hook/useAuth";
+import usePublickAxios from "../../../hook/usePublickAxios";
+import useAxios from '../../../hook/useAxios';
+import Swal from "sweetalert2";
 const options = [
     { value: 'Professionalism', label: 'Professionalism' },
     { value: 'Empowerment', label: 'Empowerment' },
@@ -19,18 +22,52 @@ const days = [
     { value: 'Fri', label: "Fri" },
     { value: 'Sat', label: "Sat" },
 ]
+
+const image_hosting_api=`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Image_Api_Key}`
 const BecomeTrainer = () => {
     const {user}=useAuth()
-    const [selectedOption, setSelectedOption] = useState([]);
-    const [selectedDay, setSelectedDay] = useState([]);
-
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedDay, setSelectedDay] = useState(null);
+    const axiospublick=usePublickAxios();
+    const axiosSecure= useAxios()
     const {
         register,
         handleSubmit,
         formState: { errors },
       } = useForm()
-      const onSubmit = (data) =>{
-      const image=data.image[0].name;
+      const onSubmit =async(data) =>{
+        console.log(data)
+     
+     const imagefile={image:data.image[0]}
+     const res=await axiospublick.post(image_hosting_api,imagefile,{
+        headers:{
+            'content-type':'multipart/form-data'
+        }
+     })
+     if(res.data.success){
+        const trainerInfo={
+            name:data.name,
+            email:data.email,
+            age:data.age,
+            image:res.data.data.display_url,
+            availableSlot:data.hours,
+            status:'panding'
+         }
+     
+    const trainerRes=await axiosSecure.post('/trainer',trainerInfo)
+    console.log(trainerRes.data)
+    if(trainerRes.data.insertedId){
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Be a trainer Request done",
+            showConfirmButton: false,
+            timer: 1500
+          });
+    }
+
+     }
+      console.log(res.data.success)
       
       }
 
@@ -48,7 +85,7 @@ const BecomeTrainer = () => {
                         <div className="mb-2 block ">
                             <Label value="Your email" className="text-white" />
                         </div>
-                        <TextInput {...register("email")} id="email1" type="email" placeholder={user?.email} required readOnly />
+                        <TextInput {...register("email")} id="email1" type="email" defaultValue={user?.email} required readOnly />
                     </div>
                     <div className="flex items-center justify-between">
                        

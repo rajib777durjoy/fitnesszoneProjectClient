@@ -1,9 +1,10 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { useForm } from "react-hook-form"
 import useAuth from '../../hook/useAuth';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
     const {userlogin,SocialLogin} = useAuth()
+    const navigate=useNavigate()
     const {
         register,
         handleSubmit,
@@ -17,10 +18,11 @@ const Login = () => {
         console.log('userlogin',res.user)
        })
       }
-      const handelFacebooklogin=()=>{
+      const handelGooglelogin=()=>{
         console.log('clicked')
         SocialLogin().then(res=>{
-            console.log('Facebook',res)
+            console.log('google',res)
+            navigate('/')
         })
       }
     return (
@@ -43,7 +45,7 @@ const Login = () => {
                     <Button type="submit">Submit</Button>
                 </form>
                <div className="w-[80%]  rounded-md my-4 mx-auto">
-                  <Button onClick={handelFacebooklogin} className="w-[100%]" type="btn">Facebook</Button>
+                  <Button onClick={handelGooglelogin} className="w-[100%]" type="btn">Google</Button>
                </div>
                <hr className="w-[90%] mx-auto" />
                 <p className="text-white text-center mt-4">Don't have an Account ? <Link to='/register'>
