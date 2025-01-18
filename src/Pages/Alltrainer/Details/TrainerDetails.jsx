@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 import usePublickAxios from '../../../hook/usePublickAxios';
 import { useQuery } from '@tanstack/react-query';
 import { Card } from 'flowbite-react';
 import BeATrainer from '../BeATrainer/BeATrainer';
+import { Helmet } from 'react-helmet-async';
 const TrainerDetails = () => {
     const { id } = useParams()
+    const navigate= useNavigate()
     const axiosPublic = usePublickAxios()
     const { data: trainer = [] } = useQuery({
         queryKey: ['trainer', id],
@@ -15,6 +17,23 @@ const TrainerDetails = () => {
             return res.data
         }
     })
+    const {_id, name, email, image, age, skills, available_days_a_week, Available_time, experience, description } = trainer || {}
+    const handelSlot=async(slot)=>{
+        const trainerInfo={
+            bookId:_id,
+            name:name,
+            slot:slot,
+            Classes:skills,
+            date:new Date()
+        }
+     const res= await axiosPublic.post(`/slot`,trainerInfo)
+     console.log(res.data)
+
+     if(res.data?.insertedId){
+        const id= res.data.insertedId;
+        navigate(`/trainerBookPage/${id}`)
+     }
+    }
     // {
     //     "_id": "678b8dae7c5a4e3cfd170da6",
     //     "name": "rajibchando",
@@ -47,9 +66,12 @@ const TrainerDetails = () => {
     // }
 
     console.log(trainer)
-    const { name, email, image, age, skills, available_days_a_week, Available_time, experience, description } = trainer || {}
+    
     return (
         <div className='min-h-screen border-2 border-rose-900'>
+             <Helmet>
+                <title>FitnessZone-TrainerDetails</title>
+            </Helmet>
             <div className='w-[100%] h-[70px]'></div>
             <h1 className='text-white text-center'>Trainer Information Section</h1>
             <div className='w-[100%] flex flex-col'>
@@ -78,8 +100,8 @@ const TrainerDetails = () => {
                 <div className='w-[60%] mx-auto mt-10 border-2'>
                     <h1 className='text-white text-4xl font-extrabold text-center'>Available slots</h1>
                     <div>
-                        {Available_time?.map(item => <Link to={`/trainerBookPage/${item}`}><li className='text-white w-[40%] mx-auto border-2
-                         border-teal-200 bg-teal-950 my-2 list-none text-center capitalize hover:bg-slate-700'>{item}</li></Link>)}
+                        {Available_time?.map(item => <button onClick={()=>handelSlot(item)} className='text-white w-[40%] mx-auto border-2
+                         border-teal-200 bg-teal-950 my-2  text-center capitalize hover:bg-slate-700'>{item}</button>)}
                     </div>
                 </div>
 

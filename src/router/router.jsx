@@ -43,7 +43,7 @@ const router =createBrowserRouter([
                 element:<Register></Register>
             },
             {
-                path:'/trainerBookPage/:slot',
+                path:'/trainerBookPage/:id',
                 element:<Bookpage></Bookpage>
             },
            

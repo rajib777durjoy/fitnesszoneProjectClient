@@ -3,6 +3,7 @@ import React from 'react';
 import useAxios from '../../hook/useAxios';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AllTrainer = () => {
     const axiosSecure=useAxios();
@@ -17,6 +18,9 @@ const AllTrainer = () => {
    console.log(trainers)
     return (
         <div className='w-[100%] min-h-screen '>
+             <Helmet>
+                <title>FitnessZone-AllTrainer</title>
+            </Helmet>
             <div className='w-[90%] mx-auto translate-y-20'>
                 <div className='grid grid-cols-3 gap-2'>
                     {
