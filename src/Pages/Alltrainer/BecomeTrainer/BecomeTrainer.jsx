@@ -42,7 +42,24 @@ const BecomeTrainer = () => {
         { value: 'evening', label: 'evening' },
         { value: 'night', label: 'night' },
     ]
+    // const slot = [
+    //     { value: '10:00 am - 11:00 am', label: 'monig' },
+    //     { value: 'noon', label: 'noon' },
+    //     { value: 'afternoon', label: 'afternoon' },
+    //     { value: 'evening', label: 'evening' },
+    //     { value: 'night', label: 'night' },
+    // ]
+
     console.log(selectedOption)
+    const skills= selectedOption.map(item=>item)
+    const skillArry= skills.map(skill=>skill.value)
+
+    const day=selectedDays.map(item=>item)
+    const singleDay=day.map(i=>i.value)
+    
+    const alltime=selectedTime.map(item=>item)
+    const times=alltime.map(t=>t.value)
+    console.log('items',skillArry,singleDay,times)
     const {
         register,
         handleSubmit,
@@ -50,21 +67,24 @@ const BecomeTrainer = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        console.log(data)
+     
+        // console.log(data)
         const imagefile = { image: data.image[0] }
         const res = await axiospublick.post(image_hosting_api, imagefile, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         })
+        console.log(res.data.data.display_url)
         if (res.data.success) {
             const trainerInfo = {
                 name: data.name,
                 email: data.email,
+                image:res.data.data.display_url,
                 age:data.age,
-                selectedOption,
-                selectedDays,
-                selectedTime,
+                skills:skillArry,
+                available_days_a_week:singleDay,
+                Available_time:times,
                 experience:data.experience,
                 hours:data.hours,
                 description:data.description,
@@ -84,7 +104,7 @@ const BecomeTrainer = () => {
             }
 
         }
-        console.log(res.data.success)
+        // console.log(res.data.success)
 
     }
 
@@ -130,7 +150,7 @@ const BecomeTrainer = () => {
                         </div>
                         <div className="w-[50%]">
                             <div className="mb-2 block">
-                                <Label htmlFor="day" value="Available days" />
+                                <Label htmlFor="day" value="Available days a week" />
                             </div>
                             <Select
                                 value={selectedDays}
@@ -147,16 +167,21 @@ const BecomeTrainer = () => {
                             </div>
                             <TextInput {...register("experience")} id="experience" type="number" placeholder="Exprience" required />
                         </div>
-                        <div className="w-[50%]">
+                        {/* <div className="w-[50%]">
                             <div className="mb-2 block">
                                 <Label htmlFor="hours" value="Class Duration" />
                             </div>
-                            <TextInput {...register("hours")} id="hours" type="text" placeholder="hours" required />
-                        </div>
+                            <Select
+                            value={selectedSlot}
+                            onChange={(e) => setSelectedTime(e)}
+                            options={time}
+                            isMulti
+                        />
+                        </div> */}
                     </div>
                     <div className="">
                         <div className="mb-2 block">
-                            <Label htmlFor="time" value="Available time" />
+                            <Label htmlFor="time" value="Available time in a day" />
                         </div>
                         <Select
                             value={selectedTime}

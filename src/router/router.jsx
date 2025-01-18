@@ -7,6 +7,8 @@ import Register from '../Auth/Register/Register';
 import Dashboard from '../Layout/Dashboard/Dashboard';
 import AllTrainer from '../Pages/Alltrainer/allTrainer';
 import BecomeTrainer from '../Pages/Alltrainer/BecomeTrainer/BecomeTrainer';
+import TrainerDetails from '../Pages/Alltrainer/Details/TrainerDetails';
+import Bookpage from '../Pages/BookPage/Bookpage';
 
 
 const router =createBrowserRouter([
@@ -24,6 +26,10 @@ const router =createBrowserRouter([
              element:<AllTrainer></AllTrainer>
             },
             {
+                path:'/tainerDetails/:id',
+                element:<TrainerDetails></TrainerDetails>
+            },
+            {
                 path:'/becometrainer',
                 element:<BecomeTrainer></BecomeTrainer>
             }
@@ -35,6 +41,10 @@ const router =createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/trainerBookPage/:slot',
+                element:<Bookpage></Bookpage>
             },
            
 
