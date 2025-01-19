@@ -52,8 +52,10 @@ const Details = () => {
             }
          })
         }
-     })
-    
+     })   
+   }
+   const handelReject=()=>{
+     console.log('hello world')
    }
 
    
@@ -64,7 +66,7 @@ const Details = () => {
                 <title>FitnessZone-AppliedTrainer|DetailsPage</title>
             </Helmet>
             <h1 className='text-center text-2xl text-white font-medium my-2'>Applied Details</h1>
-            <Card className={` ${details?'w-[60%] mx-auto mt-5':'hidden'} `}>
+            <Card className={`${details?'w-[60%] mx-auto mt-5':'hidden'}`}>
                 <div>
                     <img src={image} alt="" className='h-[300px] w-[90%] mx-auto' />
                 </div>
@@ -90,7 +92,7 @@ const Details = () => {
                 <p className='w-[90%] mx-auto '>Description:{description}</p>
                 <div className='w-[90%] mx-auto flex justify-between'>
                     <button onClick={handelconfirmation} className='border p-4 '>Confirmation</button>
-                    <button className='border p-4'>Reject</button>
+                    <button onClick={handelReject} className='border p-4'>Reject</button>
                 </div>
             </Card>
         </div>

@@ -24,7 +24,7 @@ const AppliedTrainer = () => {
             <Helmet>
                 <title>FitnessZone-Dashboard|AppliedTrainer</title>
             </Helmet>
-            <h1 className='text-3xl text-white'>this is applied page </h1>
+            <h1 className='text-3xl text-white text-center mt-2'> Applied Trainer </h1>
             <div className="overflow-x-auto mt-10 w-[90%] mx-auto">
                 <Table>
                     <Table.Head>

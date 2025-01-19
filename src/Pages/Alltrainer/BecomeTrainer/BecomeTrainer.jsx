@@ -19,6 +19,7 @@ const BecomeTrainer = () => {
     const [selectedOption, setSelectedOption] = useState([]);
     const [selectedDays, setSelectedDays] = useState([]);
     const [selectedTime, setSelectedTime] = useState([]);
+    const [selectedsocial, setSelectedsocial] = useState([]);
     const options = [
         { value: 'yoga flow', label: 'yoga flow' },
         { value: 'CoreFlow', label: 'CoreFlow' },
@@ -46,13 +47,12 @@ const BecomeTrainer = () => {
         { value: 'evening', label: 'evening' },
         { value: 'night', label: 'night' },
     ]
-    // const slot = [
-    //     { value: '10:00 am - 11:00 am', label: 'monig' },
-    //     { value: 'noon', label: 'noon' },
-    //     { value: 'afternoon', label: 'afternoon' },
-    //     { value: 'evening', label: 'evening' },
-    //     { value: 'night', label: 'night' },
-    // ]
+    const social = [
+        { value: 'Facebook', label: 'facebook' },
+        { value: 'Instagram', label: 'Instagram'},
+        { value: 'Twitter', label: 'Twitter'},
+        { value: 'Linkedin', label: 'Linkedin'},
+    ]
 
     console.log(selectedOption)
     const skills= selectedOption.map(item=>item)
@@ -63,7 +63,11 @@ const BecomeTrainer = () => {
     
     const alltime=selectedTime.map(item=>item)
     const times=alltime.map(t=>t.value)
-    console.log('items',skillArry,singleDay,times)
+
+    const socials=selectedsocial.map(item=>item)
+    const icons =socials.map(icon=>icon.value)
+    
+    console.log('items',skillArry,singleDay,times,icons)
     const {
         register,
         handleSubmit,
@@ -171,17 +175,17 @@ const BecomeTrainer = () => {
                             </div>
                             <TextInput {...register("experience")} id="experience" type="number" placeholder="Exprience" required />
                         </div>
-                        {/* <div className="w-[50%]">
-                            <div className="mb-2 block">
-                                <Label htmlFor="hours" value="Class Duration" />
-                            </div>
-                            <Select
-                            value={selectedSlot}
-                            onChange={(e) => setSelectedTime(e)}
-                            options={time}
+                       <div>
+                       <div className="mb-2 block">
+                            <Label htmlFor="social" value="Select you social link" />
+                        </div>
+                        <Select
+                            value={selectedsocial}
+                            onChange={(e) => setSelectedsocial(e)}
+                            options={social}
                             isMulti
                         />
-                        </div> */}
+                       </div>
                     </div>
                     <div className="">
                         <div className="mb-2 block">

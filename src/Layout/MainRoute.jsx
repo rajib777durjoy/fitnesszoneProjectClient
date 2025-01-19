@@ -6,10 +6,11 @@ import FooterSection from '../Component/Footer/FooterSection';
 
 const MainRoute = () => {
     return (
-        <div className='bg-black w-[100%]'>
+        <div className=' w-[100%] bg-slate-800 min-h-screen'>
             <HeaderNav></HeaderNav>
             this is main page
             <Outlet></Outlet>
+            <div className='w-[100%] h-[100px]'></div>
             <FooterSection></FooterSection>
         </div>
     );
