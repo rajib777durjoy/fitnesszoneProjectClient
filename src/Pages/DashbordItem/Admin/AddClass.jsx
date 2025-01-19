@@ -2,29 +2,40 @@ import { Button, FileInput, Label, Textarea, TextInput } from "flowbite-react";
 import { useForm } from "react-hook-form";
 import useAxios from "../../../hook/useAxios";
 import usePublickAxios from "../../../hook/usePublickAxios";
+import Swal from "sweetalert2";
 
- const image_hosting_api = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Image_Api_Key}`
-const AddClass = () => { 
-    const axiospublic= usePublickAxios()
-    const axiosSecure=useAxios()
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Image_Api_Key}`
+const AddClass = () => {
+    const axiospublic = usePublickAxios()
+    const axiosSecure = useAxios()
     const { register, handleSubmit } = useForm()
     const onSubmit = async (data) => {
         console.log(data)
-        const imagefile = { image:data.image[0] }
-        const res = await axiospublic.post(image_hosting_api,imagefile, {
+        const imagefile = { image: data.image[0] }
+        const res = await axiospublic.post(image_hosting_api, imagefile, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         })
         console.log(res.data.data.display_url)
-        if(res.data.success){
-          const classInfo={
-            name:data.name,
-            details:data.details,
-            image:res.data.data.display_url
-          }
-          const res= await axiosSecure.post('/addClass',classInfo)
-          console.log(res.data)
+        if (res.data.success) {
+            const classInfo = {
+                name: data.name,
+                details: data.details,
+                image: res.data.data.display_url
+            }
+            console.log(classInfo)
+            const classData = await axiosSecure.post('/addClass', classInfo)
+            console.log(classData.data.insertedId)
+            if (classData.data.insertedId) {
+                Swal.fire({
+                    position:"top-center",
+                    icon: "success",
+                    title: "Add Class Successful",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
         }
     }
     return (
