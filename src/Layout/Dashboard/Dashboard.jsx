@@ -1,12 +1,11 @@
-import { Sidebar } from "flowbite-react";
-import { BiBuoy } from "react-icons/bi";
-import { HiChartPie, HiViewBoards } from "react-icons/hi";
+
 import useAxios from "../../hook/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../hook/useAuth";
 import Admin from "../../Pages/DashbordItem/Admin/Admin";
 import Member from "../../Pages/DashbordItem/Member/Member";
 import { Helmet } from "react-helmet-async";
+import { Outlet } from "react-router-dom";
 const Dashboard = () => {
     const { user } = useAuth()
     const axiosSecure = useAxios()
@@ -23,36 +22,26 @@ const Dashboard = () => {
     const trainer = userCheck === 'trainer';
     console.log(admin)
     return (
-        <div className='w-[100%] min-h-screen flex justify-between'>
+        <div className='w-[100%] min-h-screen flex justify-between bg-slate-700'>
             <Helmet>
                 <title>FitnessZone-Dashboard</title>
             </Helmet>
             <div className='w-[20%] border border-red-300'>
-                <div className='w-[80%] h-[100%] mx-auto mt-5'>
-                    <Sidebar aria-label="Sidebar with content separator example">
-                        <Sidebar.Items>
-                            {admin && <Admin></Admin>}
-                            {trainer && <h1>this is trainer page</h1>}
-                            {member && <Member></Member>}
-
-
-                            <Sidebar.ItemGroup>
-                                <Sidebar.Item href="#" icon={HiChartPie}>
-                                    Upgrade to Pro
-                                </Sidebar.Item>
-                                <Sidebar.Item href="#" icon={HiViewBoards}>
-                                    Documentation
-                                </Sidebar.Item>
-                                <Sidebar.Item href="#" icon={BiBuoy}>
-                                    Help
-                                </Sidebar.Item>
-                            </Sidebar.ItemGroup>
-                        </Sidebar.Items>
-                    </Sidebar>
+                <h1 className="text-white flex items-center gap-1 my-2">
+                    <img src={user?.photoURL} alt="" className="hidden lg:block w-[50px] rounded-full" />
+                    <div className="">
+                        <h1>{user?.displayName}</h1>
+                        <h1>{user?.email}</h1>
+                    </div>
+                </h1>
+                <div className='w-[100%] h-auto  mt-5 '>    
+                            {admin || <Admin></Admin>}
+                            {/* {trainer && <h1>this is trainer page</h1>}
+                            {member && <Member></Member>} */} 
                 </div>
             </div>
             <div className='w-[80%] border border-green-400'>
-                main part
+                <Outlet></Outlet>
             </div>
         </div>
     );

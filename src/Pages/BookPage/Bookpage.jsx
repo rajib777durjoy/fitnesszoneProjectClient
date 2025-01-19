@@ -21,22 +21,27 @@ const Bookpage = () => {
     console.log(data)
     const { _id, name, slot, Classes } = data || {}
     return (
-        <div>
+        <div className="w-[100%] min-h-screen">
             <Helmet>
                 <title>FitnessZone-Bookpage</title>
             </Helmet>
             <div className='w-[100%] h-[70px]'></div>
             <h1 className='text-white'>name:{name}</h1>
             <p className="text-white">slot:{slot}</p>
-            <p className="text-white flex gap-4">Classes:{Classes.map(item => <h1 className="text-white">{item}</h1>)}</p>
+            <p className="text-white flex gap-4">Classes:{Classes?.map(item => <h1 className="text-white">{item}</h1>)}</p>
             <div className="grid md:grid-cols-3 gap-2 w-[90%] mx-auto">
                 <Card href="#" className="max-w-sm">
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Basic Membership
                     </h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                        Access to gym facilities during regular operating hours.
                     </p>
+                    <p>Use of cardio and strength training equipment.</p>
+                    <p>
+                        Access to locker rooms and showers.
+                    </p>
+                    <h1>Price:$10</h1>
                 </Card>
                 <Card href="#" className="max-w-sm">
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

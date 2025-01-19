@@ -9,6 +9,10 @@ import AllTrainer from '../Pages/Alltrainer/allTrainer';
 import BecomeTrainer from '../Pages/Alltrainer/BecomeTrainer/BecomeTrainer';
 import TrainerDetails from '../Pages/Alltrainer/Details/TrainerDetails';
 import Bookpage from '../Pages/BookPage/Bookpage';
+import AllNewsLetter from '../Pages/DashbordItem/Admin/AllNewsLetter';
+import AppliedTrainer from '../Pages/DashbordItem/Admin/AppliedTrainer';
+import Details from '../Pages/DashbordItem/Admin/Details';
+import AddClass from '../Pages/DashbordItem/Admin/AddClass';
 
 
 const router =createBrowserRouter([
@@ -52,7 +56,25 @@ const router =createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<Dashboard></Dashboard>
+        element:<Dashboard></Dashboard>,
+        children:[
+            {
+                path:'allnewsletter',
+                element:<AllNewsLetter></AllNewsLetter>
+            },
+            {
+                path:'appliedTrainer',
+                element:<AppliedTrainer></AppliedTrainer>
+            },
+            {
+             path:'details/:id',
+             element:<Details></Details>
+            },
+            {
+              path:'addClass',
+              element:<AddClass></AddClass>
+            }
+        ]
     }
 ])
 

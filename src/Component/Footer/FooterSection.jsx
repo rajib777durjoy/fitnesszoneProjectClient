@@ -1,9 +1,11 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const FooterSection = () => {
     return (
         <div>
-            footer page here ! 
+           
+            footer page here !
         </div>
     );
 };

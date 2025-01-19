@@ -1,30 +1,21 @@
 
+
 import { Helmet } from "react-helmet-async";
-import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
     return (
-        <div>
+        <div className="w-[100%]">
             <Helmet>
                 <title>FitnessZone-Dashboard|Admin</title>
             </Helmet>
-            <Sidebar.ItemGroup>
-                <Sidebar.Item href="#" icon={HiChartPie}>
-                    All Newsletter subscribers
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiViewBoards}>
-                    All Trainers
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiInbox}>
-                    Applied Trainer
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Add new Class
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Balance
-                </Sidebar.Item>
-            </Sidebar.ItemGroup>
+            <div className="w-[100%]">
+                <Link to='allnewsletter'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">All Newsletter subscribers</li></Link>
+                <Link to=''><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">All Trainers</li></Link>
+                <Link to='appliedTrainer'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Applied Trainer</li></Link>
+                <Link to=''><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Balance</li></Link>
+                <Link to='addClass'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Add new Class</li></Link>
+            </div>
         </div>
     );
 };

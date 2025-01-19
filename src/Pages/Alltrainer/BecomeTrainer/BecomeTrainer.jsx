@@ -22,9 +22,13 @@ const BecomeTrainer = () => {
     const options = [
         { value: 'yoga flow', label: 'yoga flow' },
         { value: 'CoreFlow', label: 'CoreFlow' },
-        { value: 'PulseFit', label: 'PulseFit' },
+        { value: 'Barre', label: 'Barre' },
         { value: 'Flex&Stretch', label: 'Flex&Stretch' },
-        { value: 'ZenFit', label: 'ZenFit' },
+        { value: 'Pilates', label: 'Pilates' },
+        { value: 'CardioCrush', label: 'CardioCrush' },
+        { value: 'Core', label: 'Core' },
+        { value: 'Hiit', label: 'Hiit' },
+        
     ];
     const days = [
         { value: 'sun', label: 'sun' },
