@@ -13,6 +13,7 @@ import AllNewsLetter from '../Pages/DashbordItem/Admin/AllNewsLetter';
 import AppliedTrainer from '../Pages/DashbordItem/Admin/AppliedTrainer';
 import Details from '../Pages/DashbordItem/Admin/Details';
 import AddClass from '../Pages/DashbordItem/Admin/AddClass';
+import AllClass from '../Pages/AllClass/AllClass';
 
 
 const router =createBrowserRouter([
@@ -30,14 +31,18 @@ const router =createBrowserRouter([
              element:<AllTrainer></AllTrainer>
             },
             {
+              path:'/allclasses',
+              element:<AllClass></AllClass>,
+              loader:()=>fetch(`http://localhost:9000/totalclass`)
+            },
+            {
                 path:'/tainerDetails/:id',
                 element:<TrainerDetails></TrainerDetails>
             },
             {
                 path:'/becometrainer',
                 element:<BecomeTrainer></BecomeTrainer>
-            }
-            ,
+            },
             {
                 path:'/login',
                 element:<Login></Login>

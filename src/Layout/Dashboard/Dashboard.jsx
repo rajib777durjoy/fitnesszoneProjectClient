@@ -17,10 +17,9 @@ const Dashboard = () => {
         }
     })
 
-    const admin = userCheck === 'admin';
-    const member = userCheck === 'member';
-    const trainer = userCheck === 'trainer';
-    console.log(admin)
+    const admin = true;
+    
+    // console.log(userCheck)
     return (
         <div className='w-[100%] min-h-screen flex justify-between bg-slate-700'>
             <Helmet>
@@ -35,7 +34,7 @@ const Dashboard = () => {
                     </div>
                 </h1>
                 <div className='w-[100%] h-auto  mt-5 '>    
-                            {admin || <Admin></Admin>}
+                            {admin && <Admin></Admin>}
                             {/* {trainer && <h1>this is trainer page</h1>}
                             {member && <Member></Member>} */} 
                 </div>

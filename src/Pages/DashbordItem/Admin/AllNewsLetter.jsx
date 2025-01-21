@@ -15,7 +15,7 @@ const AllNewsLetter = () => {
             return res.data;
         }
     })
-    console.log(news)
+    console.log('ngjhgjg',news)
     const {name,email,role}= news|| {}
     return (
         <div className='w-[100%]'>

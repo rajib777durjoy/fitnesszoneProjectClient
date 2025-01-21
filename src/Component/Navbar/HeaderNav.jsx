@@ -25,7 +25,6 @@ const HeaderNav = () => {
           <span className="self-center whitespace-nowrap text-2xl font-semibold text-white italic">Fitness<span className="text-[#26b1c9]">Zone</span></span>
         </Navbar.Brand>
         <div className="flex justify-between md:order-2 ">
-         
           {
             user && <div className="flex justify-between gap-2 items-center">
             <li className="text-xl list-none text-white"><img src={user.photoURL} alt="" className="w-[50px] h-[50px] rounded-full" /></li>

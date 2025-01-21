@@ -12,7 +12,7 @@ const AddClass = () => {
     const onSubmit = async (data) => {
         console.log(data)
         const imagefile = { image: data.image[0] }
-        const res = await axiospublic.post(image_hosting_api, imagefile, {
+        const res = await axiospublic.post(image_hosting_api,imagefile,{
             headers: {
                 'content-type': 'multipart/form-data'
             }
@@ -25,7 +25,7 @@ const AddClass = () => {
                 image: res.data.data.display_url
             }
             console.log(classInfo)
-            const classData = await axiosSecure.post('/addClass', classInfo)
+            const classData = await axiosSecure.post('/addclass',classInfo)
             console.log(classData.data.insertedId)
             if (classData.data.insertedId) {
                 Swal.fire({
