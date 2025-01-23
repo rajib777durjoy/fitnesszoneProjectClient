@@ -14,6 +14,7 @@ import AppliedTrainer from '../Pages/DashbordItem/Admin/AppliedTrainer';
 import Details from '../Pages/DashbordItem/Admin/Details';
 import AddClass from '../Pages/DashbordItem/Admin/AddClass';
 import AllClass from '../Pages/AllClass/AllClass';
+import Paymentpage from '../Pages/Payment/Paymentpage';
 
 
 const router =createBrowserRouter([
@@ -42,6 +43,10 @@ const router =createBrowserRouter([
             {
                 path:'/becometrainer',
                 element:<BecomeTrainer></BecomeTrainer>
+            },
+            {
+                path:'/paymentpage/:id',
+                element:<Paymentpage></Paymentpage>
             },
             {
                 path:'/login',

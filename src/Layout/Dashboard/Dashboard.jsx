@@ -6,6 +6,7 @@ import Admin from "../../Pages/DashbordItem/Admin/Admin";
 import Member from "../../Pages/DashbordItem/Member/Member";
 import { Helmet } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
+import AdminPrivate from "../../Private/AdminPrivate/AdminPrivate";
 const Dashboard = () => {
     const { user } = useAuth()
     const axiosSecure = useAxios()
@@ -17,9 +18,9 @@ const Dashboard = () => {
         }
     })
 
-    const admin = true;
+    const admin = userCheck.user === 'admin';
     
-    // console.log(userCheck)
+    console.log()
     return (
         <div className='w-[100%] min-h-screen flex justify-between bg-slate-700'>
             <Helmet>
@@ -34,7 +35,7 @@ const Dashboard = () => {
                     </div>
                 </h1>
                 <div className='w-[100%] h-auto  mt-5 '>    
-                            {admin && <Admin></Admin>}
+                            {admin && <AdminPrivate><Admin></Admin></AdminPrivate>}
                             {/* {trainer && <h1>this is trainer page</h1>}
                             {member && <Member></Member>} */} 
                 </div>
