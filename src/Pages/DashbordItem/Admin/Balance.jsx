@@ -11,7 +11,6 @@ const Balance = () => {
        }) 
     },[])
     const totalbalance= balance.reduce((prev,current)=>prev + parseInt(current?.price),0)
-  
     const langt= balance.length-5
     const slices=balance.slice(0,langt)
    

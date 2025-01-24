@@ -19,10 +19,10 @@ const Details = () => {
         }
     })
 
-   const handelconfirmation=()=>{
-    console.log(id)
+   const handelconfirmation= (_id)=>{
+     console.log(_id)
     const statusInfo={
-        id:id,
+        id:_id,
         status:'success'
     }
      axiosSecure.patch('/statusChange',statusInfo)
@@ -42,7 +42,7 @@ const Details = () => {
             if(res.data.deletedCount){
                 refetch()
                 Swal.fire({
-                    position: "top-center",
+                    position:"top-center",
                     icon: "success",
                     title: "Applied Trainer Remove Successful",
                     showConfirmButton: false,
@@ -89,7 +89,7 @@ const Details = () => {
                 </div>
                 <p className='w-[90%] mx-auto '>Description:{description}</p>
                 <div className='w-[90%] mx-auto flex justify-between'>
-                    <button onClick={handelconfirmation} className='border p-4 '>Confirmation</button>
+                    <button onClick={()=>handelconfirmation(_id)} className='border p-4 '>Confirmation</button>
                     <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
                 </div>
             </Card>

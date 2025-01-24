@@ -6,6 +6,7 @@ import Admin from "../../Pages/DashbordItem/Admin/Admin";
 import Member from "../../Pages/DashbordItem/Member/Member";
 import { Helmet } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 import AdminPrivate from "../../Private/AdminPrivate/AdminPrivate";
 const Dashboard = () => {
     const { user } = useAuth()
@@ -39,6 +40,7 @@ const Dashboard = () => {
                             {admin && <AdminPrivate><Admin></Admin></AdminPrivate>}
                             
                 </div>
+                <Link to='/' ><div className='text-white text-xl ms-5 w-[90%] '>Home</div></Link>
             </div>
             <div className='w-[80%] border border-green-400'>
                 <Outlet></Outlet>

@@ -8,6 +8,7 @@ import Testimonials from './Testimonials/Testimonials';
 import Forum from './Forum/Forum';
 import Newsletter from './News/Newsletter';
 import About from './About/About';
+import TeamSection from './TeamSection/TeamSection';
 
 const Home = () => {
     const {name}=useAuth()
@@ -17,12 +18,19 @@ const Home = () => {
                 <title>FitnessZone-Home</title>
             </Helmet>
             <Banner></Banner>
-            <Features></Features> 
+            <Features></Features>
+            <hr /> 
             <About></About>
+            <hr />
             <FeatureClass></FeatureClass>
+            <hr />
             <Testimonials></Testimonials>
+            <hr />
             <Forum></Forum>
+            <hr />
             <Newsletter></Newsletter>
+            <hr />
+            <TeamSection></TeamSection>
         </div>
     );
 };

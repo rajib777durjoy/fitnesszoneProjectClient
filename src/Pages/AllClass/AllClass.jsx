@@ -4,12 +4,6 @@ import { Card} from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
-// {
-//     "_id": "678d1265ac98f53503115fe5",
-//     "name": "Barre",
-//     "details": "This is Barre Class",
-//     "image": "https://i.ibb.co.com/1mG5k3Z/barreimage.jpg"
-// }
 const AllClass = () => {
    const Data=useLoaderData()
    const [itemsPerPage,setitemsPerPage]=useState(6)
@@ -25,6 +19,10 @@ const AllClass = () => {
     axiosSecure.get(`/allClass?page=${Selectbtn}&size=${itemsPerPage}`)
     .then(data=>{
         setclassData(data.data)
+    })
+    axiosSecure.get('/classbyTrainer')
+    .then(res=>{
+      console.log('classbytrainer',res.data)
     })
  },[Selectbtn,search])
 
