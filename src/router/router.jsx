@@ -15,6 +15,7 @@ import Details from '../Pages/DashbordItem/Admin/Details';
 import AddClass from '../Pages/DashbordItem/Admin/AddClass';
 import AllClass from '../Pages/AllClass/AllClass';
 import Paymentpage from '../Pages/Payment/Paymentpage';
+import Balance from '../Pages/DashbordItem/Admin/Balance';
 
 
 const router =createBrowserRouter([
@@ -83,6 +84,10 @@ const router =createBrowserRouter([
             {
               path:'addClass',
               element:<AddClass></AddClass>
+            },
+            {
+                path:"balance",
+                element:<Balance></Balance>
             }
         ]
     }

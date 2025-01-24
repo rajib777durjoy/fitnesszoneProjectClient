@@ -18,7 +18,8 @@ const Dashboard = () => {
         }
     })
 
-    const admin = userCheck.user === 'admin';
+    const admin = userCheck?.user === 'admin';
+    const trainer= userCheck?.user === "trainer";
     
     console.log()
     return (
@@ -36,8 +37,7 @@ const Dashboard = () => {
                 </h1>
                 <div className='w-[100%] h-auto  mt-5 '>    
                             {admin && <AdminPrivate><Admin></Admin></AdminPrivate>}
-                            {/* {trainer && <h1>this is trainer page</h1>}
-                            {member && <Member></Member>} */} 
+                            
                 </div>
             </div>
             <div className='w-[80%] border border-green-400'>

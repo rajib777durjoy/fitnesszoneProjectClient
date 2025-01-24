@@ -29,7 +29,7 @@ const BecomeTrainer = () => {
         { value: 'CardioCrush', label: 'CardioCrush' },
         { value: 'Core', label: 'Core' },
         { value: 'Hiit', label: 'Hiit' },
-        
+
     ];
     const days = [
         { value: 'sun', label: 'sun' },
@@ -49,25 +49,25 @@ const BecomeTrainer = () => {
     ]
     const social = [
         { value: 'Facebook', label: 'facebook' },
-        { value: 'Instagram', label: 'Instagram'},
-        { value: 'Twitter', label: 'Twitter'},
-        { value: 'Linkedin', label: 'Linkedin'},
+        { value: 'Instagram', label: 'Instagram' },
+        { value: 'Twitter', label: 'Twitter' },
+        { value: 'Linkedin', label: 'Linkedin' },
     ]
 
     console.log(selectedOption)
-    const skills= selectedOption.map(item=>item)
-    const skillArry= skills.map(skill=>skill.value)
+    const skills = selectedOption.map(item => item)
+    const skillArry = skills.map(skill => skill.value)
 
-    const day=selectedDays.map(item=>item)
-    const singleDay=day.map(i=>i.value)
-    
-    const alltime=selectedTime.map(item=>item)
-    const times=alltime.map(t=>t.value)
+    const day = selectedDays.map(item => item)
+    const singleDay = day.map(i => i.value)
 
-    const socials=selectedsocial.map(item=>item)
-    const icons =socials.map(icon=>icon.value)
-    
-    console.log('items',skillArry,singleDay,times,icons)
+    const alltime = selectedTime.map(item => item)
+    const times = alltime.map(t => t.value)
+
+    const socials = selectedsocial.map(item => item)
+    const icons = socials.map(icon => icon.value)
+
+    console.log('items', skillArry, singleDay, times, icons)
     const {
         register,
         handleSubmit,
@@ -75,7 +75,7 @@ const BecomeTrainer = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-     
+
         // console.log(data)
         const imagefile = { image: data.image[0] }
         const res = await axiospublick.post(image_hosting_api, imagefile, {
@@ -88,15 +88,16 @@ const BecomeTrainer = () => {
             const trainerInfo = {
                 name: data.name,
                 email: data.email,
-                image:res.data.data.display_url,
-                age:data.age,
-                skills:skillArry,
-                available_days_a_week:singleDay,
-                Available_time:times,
-                experience:data.experience,
-                hours:data.hours,
-                description:data.description,
-                status:'pending'
+                image: res.data.data.display_url,
+                age: data.age,
+                skills: skillArry,
+                available_days_a_week: singleDay,
+                Available_time: times,
+                experience: data.experience,
+                socialIcon:icons,
+                hours: data.ClassDuration,
+                description: data.description,
+                status: 'pending'
             }
             console.log('trainer information', trainerInfo)
             const trainerRes = await axiosSecure.post('/trainer', trainerInfo)
@@ -131,7 +132,7 @@ const BecomeTrainer = () => {
                             <div className="mb-2 block">
                                 <Label htmlFor="email1" value="Your email" />
                             </div>
-                            <TextInput {...register("email")} id="email1" type="email"  defaultValue={user.email} readOnly required />
+                            <TextInput {...register("email")} id="email1" type="email" defaultValue={user.email} readOnly required />
                         </div>
                     </div>
                     <div className="flex justify-between">
@@ -145,7 +146,7 @@ const BecomeTrainer = () => {
                         <TextInput {...register("age")} className="w-[40%]" id="age" type='number' placeholder="Age" required />
                     </div>
                     <div className="flex justify-between">
-                        <div className="w-[50%]">
+                        <div className="w-[45%]">
                             <div className="mb-2 block">
                                 <Label htmlFor="skills" value="Skills" />
                             </div>
@@ -156,7 +157,7 @@ const BecomeTrainer = () => {
                                 isMulti
                             />
                         </div>
-                        <div className="w-[50%]">
+                        <div className="w-[45%]">
                             <div className="mb-2 block">
                                 <Label htmlFor="day" value="Available days a week" />
                             </div>
@@ -169,35 +170,45 @@ const BecomeTrainer = () => {
                         </div>
                     </div>
                     <div className="flex justify-between">
-                        <div className="w-[50%]">
+                        <div className="w-[45%]">
                             <div className="mb-2 block">
                                 <Label htmlFor="experience" value="Experience" />
                             </div>
                             <TextInput {...register("experience")} id="experience" type="number" placeholder="Exprience" required />
                         </div>
-                       <div>
-                       <div className="mb-2 block">
-                            <Label htmlFor="social" value="Select you social link" />
+                        <div className="w-[45%]">
+                            <div className="mb-2 block">
+                                <Label htmlFor="social" value="Select you social link" />
+                            </div>
+                            <Select
+                                value={selectedsocial}
+                                onChange={(e) => setSelectedsocial(e)}
+                                options={social}
+                                isMulti
+                            />
                         </div>
-                        <Select
-                            value={selectedsocial}
-                            onChange={(e) => setSelectedsocial(e)}
-                            options={social}
-                            isMulti
-                        />
-                       </div>
                     </div>
-                    <div className="">
-                        <div className="mb-2 block">
-                            <Label htmlFor="time" value="Available time in a day" />
+                    <div className="flex justify-between">
+                        <div className="w-[45%]">
+                            <div className="mb-2 block">
+                                <Label htmlFor="time" value="Available time in a day" />
+                            </div>
+                            <Select
+                                value={selectedTime}
+                                onChange={(e) => setSelectedTime(e)}
+                                options={time}
+                                isMulti
+                            />
+                            
                         </div>
-                        <Select
-                            value={selectedTime}
-                            onChange={(e) => setSelectedTime(e)}
-                            options={time}
-                            isMulti
-                        />
+                        <div className="w-[45%]">
+                                <div className="mb-2 block">
+                                    <Label htmlFor="experience" value="Experience" />
+                                </div>
+                                <TextInput {...register("ClassDuration")} id="ClasssDuration" type="number" placeholder="Class Duration" required />
+                        </div>
                     </div>
+
                     <Textarea id="comment" {...register("description")} placeholder="Bio..." required rows={4} />
                     <Button type="submit">Apply</Button>
                 </form>

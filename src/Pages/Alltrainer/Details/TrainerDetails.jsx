@@ -17,7 +17,7 @@ const TrainerDetails = () => {
             return res.data
         }
     })
-    const {_id, name, email, image, age, skills, available_days_a_week, Available_time, experience, description } = trainer || {}
+    const {_id, name, email,socialIcon, image, age, skills, available_days_a_week, Available_time, experience, description } = trainer || {}
     const handelSlot=async(slot)=>{
         const trainerInfo={
             bookId:_id,
@@ -91,7 +91,11 @@ const TrainerDetails = () => {
                         <h1 className='flex'>Skills:{skills?.map(i => <li className='list-none mx-1'>{i}</li>)}</h1>
                         <h1>Experience:{experience}</h1>
                     </div>
+                    <div className='flex justify-between'>
                     <div className='flex text-xl'>Available_days_a_week:{available_days_a_week?.map(item => <li className='list-none mx-1 text-lg font-medium border-2 p-1'>{item}</li>)}</div>
+                    <div className='flex'>SocialLink:{socialIcon?.map(item=><li className='list-none mx-1'>{item}</li>)}</div>
+                    </div>
+                    
                     <div className=''>
                         Description:{description}
                     </div>
