@@ -26,7 +26,7 @@ const Newsletter = () => {
        }
        if(res.data.insertedId){
         Swal.fire({
-            position: "top-end",
+            position: "top-center",
             icon: "success",
             title: "user set database",
             showConfirmButton: false,

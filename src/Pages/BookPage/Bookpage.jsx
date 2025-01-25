@@ -7,6 +7,7 @@ import { Button, Card } from "flowbite-react";
 import { Helmet } from "react-helmet-async";
 import useAuth from "../../hook/useAuth";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const Bookpage = () => {
     const { user } = useAuth()
@@ -45,6 +46,13 @@ const Bookpage = () => {
         .then(res=>{
             console.log(res.data)
             if(res.data.insertedId){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Package Book done",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
               setSelectPackage('')
               setActivepackage('')
               navigateToPayment(`/paymentpage/${res?.data?.insertedId}`) 

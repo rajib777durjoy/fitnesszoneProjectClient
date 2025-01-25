@@ -26,7 +26,7 @@ const AddClass = () => {
             }
             console.log(classInfo)
             const classData = await axiosSecure.post('/addclass',classInfo)
-            console.log(classData.data.insertedId)
+            // console.log(classData.data.insertedId)
             if (classData.data.insertedId) {
                 Swal.fire({
                     position:"top-center",

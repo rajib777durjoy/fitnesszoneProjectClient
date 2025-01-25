@@ -6,8 +6,10 @@ import { Card } from 'flowbite-react';
 import BeATrainer from '../BeATrainer/BeATrainer';
 
 import { Helmet } from 'react-helmet-async';
+import useAuth from '../../../hook/useAuth';
 const TrainerDetails = () => {
     const { id } = useParams()
+    const {user}=useAuth()
     const navigate = useNavigate()
     const axiosPublic = usePublickAxios()
     const { data: trainer = [] } = useQuery({
@@ -24,6 +26,7 @@ const TrainerDetails = () => {
             bookId: _id,
             name: name,
             slot: slot,
+            useremail:user?.email,
             Classes: skills,
             date: new Date()
         }
