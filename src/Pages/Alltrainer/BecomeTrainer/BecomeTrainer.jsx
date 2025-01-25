@@ -104,9 +104,18 @@ const BecomeTrainer = () => {
             console.log(trainerRes.data)
             if (trainerRes.data.insertedId) {
                 Swal.fire({
-                    position: "top-end",
+                    position: "top-center",
                     icon: "success",
                     title: "Be a trainer Request done",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+            if(trainerRes.data.message){
+                Swal.fire({
+                    position: "top-center",
+                    icon: "error",
+                    title: trainerRes.data.message,
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -203,7 +212,7 @@ const BecomeTrainer = () => {
                         </div>
                         <div className="w-[45%]">
                                 <div className="mb-2 block">
-                                    <Label htmlFor="experience" value="Experience" />
+                                    <Label htmlFor="ClassDuration" value="ClassDuration" />
                                 </div>
                                 <TextInput {...register("ClassDuration")} id="ClasssDuration" type="number" placeholder="Class Duration" required />
                         </div>

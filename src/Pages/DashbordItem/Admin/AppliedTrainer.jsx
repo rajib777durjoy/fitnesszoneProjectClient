@@ -22,10 +22,10 @@ const AppliedTrainer = () => {
     return (
         <div>
             <Helmet>
-                <title>FitnessZone-Dashboard|AppliedTrainer</title>
+                <title>FitnessZone-Dashboard|AppliedTrainers</title>
             </Helmet>
-            <h1 className='text-3xl text-white text-center mt-2'> Applied Trainer </h1>
-            <div className="overflow-x-auto mt-10 w-[90%] mx-auto">
+            <h1 className='text-3xl text-white text-center mt-2'> Applied Trainers </h1>
+            <div className={`overflow-x-auto mt-10 w-[90%] mx-auto `}>
                 <Table>
                     <Table.Head>
                         <Table.HeadCell>#</Table.HeadCell>

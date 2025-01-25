@@ -52,20 +52,7 @@ const Bookpage = () => {
         })
 
     }
-    // const basicPackage=(basic,price)=>{
-    //     console.log(basic,price,_id)
-    //     const someInfo={
-    //         package:basic,
-    //         price:price,
-    //         TrainerId:_id,
-    //         TrainerName:name,
-    //         Slot:slot,
-    //         Classes:Classes,
-    //         CustomerName:user?.displayName,
-    //         CustomerEmail:user?.email,
-    //     }
-
-    // }
+   
     const { _id, name, slot, Classes } = data || {}
     return (
         <div className="w-[100%] min-h-screen">

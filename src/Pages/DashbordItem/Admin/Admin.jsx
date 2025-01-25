@@ -14,6 +14,7 @@ const Admin = () => {
                 <Link to='appliedTrainer'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Applied Trainer</li></Link>
                 <Link to='balance'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Balance</li></Link>
                 <Link to='addClass'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Add new Class</li></Link>
+                <Link to='addforum'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Add new Forum</li></Link>
             </div>
         </div>
     );

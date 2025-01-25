@@ -5,10 +5,10 @@ import { Helmet } from 'react-helmet-async';
 import Features from './Features/Features';
 import FeatureClass from './FeaturesClass/FeatureClass';
 import Testimonials from './Testimonials/Testimonials';
-import Forum from './Forum/Forum';
 import Newsletter from './News/Newsletter';
 import About from './About/About';
 import TeamSection from './TeamSection/TeamSection';
+import Forum from '../DashbordItem/Admin/Forum';
 
 const Home = () => {
     const {name}=useAuth()

@@ -29,7 +29,7 @@ const AllNewsLetter = () => {
                     </Table.Head>
                     <Table.Body className="divide-y">
                         {
-                            news.map(item=><Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                            news?.map(item=><Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
                                 <Table.Cell>{item?.name}</Table.Cell>
                                 <Table.Cell>{item?.email}</Table.Cell>
                                 <Table.Cell>{item?.role}</Table.Cell>

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import useAuth from '../../hook/useAuth';
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { userlogin, SocialLogin } = useAuth()
@@ -19,12 +20,12 @@ const Login = () => {
         const password = data.password;
         userlogin(email, password).then(res => {
             Swal.fire({
-                position:"top-center",
+                position: "top-center",
                 icon: "success",
                 title: "login successful",
                 showConfirmButton: false,
                 timer: 1500
-            }); 
+            });
             navigate('/')
         }).catch(err => {
             Swal.fire({
@@ -58,6 +59,9 @@ const Login = () => {
     }
     return (
         <div className="w-[100%] min-h-screen mt-20">
+            <Helmet>
+                <title>FitnessZone-Login Page</title>
+            </Helmet>
             <div className="w-[40%] mx-auto h-[500px] border shadow-md shadow-slate-300 rounded-lg bg-slate-700 py-10">
                 <form onSubmit={handleSubmit(onSubmit)} className="flex w-[80%] mx-auto flex-col gap-4 ">
                     <div>

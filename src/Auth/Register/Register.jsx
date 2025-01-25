@@ -6,9 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const Register = () => {
     const { createUser } = useAuth()
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -22,25 +23,28 @@ const Register = () => {
         const password = data.password;
         createUser(email, password).then(res => {
             console.log(res.user)
-            if(res.user){
-                updateProfile(auth.currentUser,{
-                    displayName:name,
-                    photoURL:photoUrl
-                }).then(res=>{
+            if (res.user) {
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: photoUrl
+                }).then(res => {
                     Swal.fire({
                         position: "top-center",
                         icon: "success",
                         title: "Register  successful",
                         showConfirmButton: false,
                         timer: 1500
-                      });
-                      navigate('/')
+                    });
+                    navigate('/')
                 })
             }
         })
     }
     return (
         <div className="w-[100%] min-h-screen mt-20 ">
+            <Helmet>
+                <title>FitnessZone-Register Page</title>
+            </Helmet>
             <div className="w-[40%] mx-auto min-h-[500px] border shadow-md shadow-slate-300 rounded-lg bg-slate-700 py-10">
                 <form onSubmit={handleSubmit(onSubmit)} className="flex w-[80%] mx-auto flex-col gap-4 ">
                     <div>

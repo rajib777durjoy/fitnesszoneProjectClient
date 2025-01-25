@@ -16,6 +16,8 @@ import AddClass from '../Pages/DashbordItem/Admin/AddClass';
 import AllClass from '../Pages/AllClass/AllClass';
 import Paymentpage from '../Pages/Payment/Paymentpage';
 import Balance from '../Pages/DashbordItem/Admin/Balance';
+import Forum from '../Pages/DashbordItem/Admin/Forum';
+
 
 
 const router =createBrowserRouter([
@@ -88,6 +90,10 @@ const router =createBrowserRouter([
             {
                 path:"balance",
                 element:<Balance></Balance>
+            },
+            {
+                path:'addforum',
+                element:<Forum></Forum>
             }
         ]
     }
