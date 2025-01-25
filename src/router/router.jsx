@@ -17,6 +17,7 @@ import AllClass from '../Pages/AllClass/AllClass';
 import Paymentpage from '../Pages/Payment/Paymentpage';
 import Balance from '../Pages/DashbordItem/Admin/Balance';
 import Forum from '../Pages/DashbordItem/Admin/Forum';
+import ForumPage from '../Pages/Forum/ForumPage';
 
 
 
@@ -50,6 +51,11 @@ const router =createBrowserRouter([
             {
                 path:'/paymentpage/:id',
                 element:<Paymentpage></Paymentpage>
+            },
+            {
+                path:'/forums',
+                element:<ForumPage></ForumPage>,
+                loader:()=>fetch(`http://localhost:9000/totalforum`)
             },
             {
                 path:'/login',

@@ -4,9 +4,12 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import useAxios from '../../../hook/useAxios';
 import usePublickAxios from '../../../hook/usePublickAxios';
+import useAuth from '../../../hook/useAuth';
 
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Image_Api_Key}`
 const Forum = () => {
+    const {user}= useAuth()
+    console.log(user?.email)
     const {
         register,
         handleSubmit,
@@ -25,8 +28,10 @@ const Forum = () => {
             const froumInfo = {
                 title: data.title,
                 details: data.details,
-                image: res.data.data.display_url
+                image: res.data.data.display_url,
+                CreatorEmail:user?.email,
             }
+            console.log('forumData',froumInfo)
             const forumData = await axiosSecure.post('/addFroum', froumInfo)
             // console.log(forumData.data.insertedId)
             if (forumData.data.insertedId) {
@@ -45,18 +50,18 @@ const Forum = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="flex w-[80%] mx-auto flex-col gap-4">
                 <div>
                     <div className="mb-2 block">
-                        <Label htmlFor="Froum Title" value="Title" />
+                        <Label className='text-white' htmlFor="Froum Title" value="Title" />
                     </div>
                     <TextInput {...register("title")} id="FroumTitle" type="text" placeholder="Froum Title" required />
                 </div>
                 <div>
                     <div className="mb-2 block">
-                        <Label htmlFor="photo" value="Image" />
+                        <Label className='text-white' htmlFor="photo" value="Image" />
                     </div>
                     <TextInput {...register("image")} id="photo" type='file' required />
                 </div>
                 <div className="mb-2 block">
-                    <Label htmlFor="comment" value="Your message" />
+                    <Label className='text-white' htmlFor="comment" value="Your message" />
                 </div>
                 <Textarea {...register("details")} id="comment" placeholder="Details" required rows={4} />
                 <Button type="submit">Post</Button>

@@ -22,7 +22,6 @@ const Dashboard = () => {
     const admin = userCheck?.user === 'admin';
     const trainer= userCheck?.user === "trainer";
     
-    console.log()
     return (
         <div className='w-[100%] min-h-screen flex justify-between bg-slate-700'>
             <Helmet>

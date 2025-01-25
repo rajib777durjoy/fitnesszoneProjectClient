@@ -20,6 +20,7 @@ const AllClass = () => {
     .then(data=>{
         setclassData(data.data)
     })
+
     axiosSecure.get('/classbyTrainer')
     .then(res=>{
       console.log('classbytrainer',res.data)
