@@ -18,6 +18,10 @@ import Paymentpage from '../Pages/Payment/Paymentpage';
 import Balance from '../Pages/DashbordItem/Admin/Balance';
 import Forum from '../Pages/DashbordItem/Admin/Forum';
 import ForumPage from '../Pages/Forum/ForumPage';
+import AllTrainerList from '../Pages/DashbordItem/Admin/AllTrainerList';
+import Activity from '../Pages/DashbordItem/Member/pages/Activity';
+import Profile from '../Pages/DashbordItem/Member/pages/Profile';
+import BookedTrainer from '../Pages/DashbordItem/Member/pages/BookedTrainer';
 
 
 
@@ -38,7 +42,7 @@ const router =createBrowserRouter([
             {
               path:'/allclasses',
               element:<AllClass></AllClass>,
-              loader:()=>fetch(`http://localhost:9000/totalclass`)
+              loader:()=>fetch(`https://fitness-zone-server-xi.vercel.app/totalclass`)
             },
             {
                 path:'/tainerDetails/:id',
@@ -55,7 +59,7 @@ const router =createBrowserRouter([
             {
                 path:'/forums',
                 element:<ForumPage></ForumPage>,
-                loader:()=>fetch(`http://localhost:9000/totalforum`)
+                loader:()=>fetch(`https://fitness-zone-server-xi.vercel.app/totalforum`)
             },
             {
                 path:'/login',
@@ -82,6 +86,10 @@ const router =createBrowserRouter([
                 element:<AllNewsLetter></AllNewsLetter>
             },
             {
+                path:'allTrainerList',
+                element:<AllTrainerList></AllTrainerList>
+            },
+            {
                 path:'appliedTrainer',
                 element:<AppliedTrainer></AppliedTrainer>
             },
@@ -100,7 +108,19 @@ const router =createBrowserRouter([
             {
                 path:'addforum',
                 element:<Forum></Forum>
-            }
+            },
+            {
+                path:'activity',
+                element:<Activity></Activity>
+            },
+            {
+                path:'profile',
+                element:<Profile></Profile>
+            },
+            {
+                path:'bookedtrainer',
+                element:<BookedTrainer></BookedTrainer>
+            },
         ]
     }
 ])

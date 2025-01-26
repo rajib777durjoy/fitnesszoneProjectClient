@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useAxios from "../../../hook/useAxios";
 import usePublickAxios from "../../../hook/usePublickAxios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Image_Api_Key}`
 const AddClass = () => {
@@ -12,7 +13,7 @@ const AddClass = () => {
     const onSubmit = async (data) => {
         console.log(data)
         const imagefile = { image: data.image[0] }
-        const res = await axiospublic.post(image_hosting_api,imagefile,{
+        const res = await axiospublic.post(image_hosting_api, imagefile, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
@@ -25,11 +26,11 @@ const AddClass = () => {
                 image: res.data.data.display_url
             }
             console.log(classInfo)
-            const classData = await axiosSecure.post('/addclass',classInfo)
+            const classData = await axiosSecure.post('/addclass', classInfo)
             // console.log(classData.data.insertedId)
             if (classData.data.insertedId) {
                 Swal.fire({
-                    position:"top-center",
+                    position: "top-center",
                     icon: "success",
                     title: "Add Class Successful",
                     showConfirmButton: false,
@@ -40,6 +41,9 @@ const AddClass = () => {
     }
     return (
         <div className="w-[100%] ">
+            <Helmet>
+                <title>FitnessZone-Dashboard|AddClass-page</title>
+            </Helmet>
             <h1 className="text-white text-center font-extrabold text-4xl mt-4">Add New Class</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="flex w-[80%] mt-20 mx-auto flex-col gap-4">
                 <div className="flex justify-between gap-2">

@@ -1,43 +1,38 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import useAxios from '../../hook/useAxios';
 import { useLoaderData } from 'react-router-dom';
 import { AiFillDislike, AiFillLike } from 'react-icons/ai';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import useAuth from '../../hook/useAuth';
-import { Button } from 'flowbite-react';
+import { Button, Spinner } from 'flowbite-react';
+import usePublickAxios from '../../hook/usePublickAxios';
+import { Helmet } from 'react-helmet-async';
 const ForumPage = () => {
     const Data = useLoaderData()
     const { user } = useAuth()
     const [count, setcount] = useState(Data?.total);
     const [itemsPerPage, setitemsPerPage] = useState(6);
     const [Selectbtn, setSelectbtn] = useState(0);
-    // const [forumpage,setforumpage]=useState([]);
     const numberOffPages = Math.ceil(count / itemsPerPage);
     const pages = [...Array(numberOffPages).keys()];
-    const axiosSecure = useAxios();
-    //    useEffect(()=>{
-    //      axiosSecure(`/allforum?page=${Selectbtn}&size=${itemsPerPage}`)
-    //      .then(res=>{
-    //      console.log(res.data)
-    //      setforumpage(res.data)
-    //      })
-    //    },[Selectbtn])
-
-    const { data: forumpage = [], refetch } = useQuery({
+    const axiosPublic= usePublickAxios()
+   
+    const { data: forumpage = [], refetch,isPending } = useQuery({
         queryKey: ['page', Selectbtn],
         queryFn: async () => {
-            const res = await axiosSecure(`/allforum?page=${Selectbtn}&size=${itemsPerPage}`)
+            const res = await axiosPublic(`/allforum?page=${Selectbtn}&size=${itemsPerPage}`)
             console.log(res.data)
             return res.data
         }
     })
-
+   if(isPending){
+    return <div className="text-center translate-y-40"><Spinner aria-label="Large spinner example" size="lg" /></div>
+   }
     const handelLike = async (id) => {
         if (user?.email) {
             const email = { email: user.email }
-            const res = await axiosSecure.patch(`/voteUp/${id}`, email)
+            const res = await axiosPublic.patch(`/voteUp/${id}`, email)
             // console.log(res.data)
             if (res.data.modifiedCount > 0) {
                 refetch();
@@ -64,7 +59,7 @@ const ForumPage = () => {
           console.log(id)
           if(user?.email){
             const email={email:user.email}
-            const res = await axiosSecure.patch(`/voteDown/${id}`,email)
+            const res = await axiosPublic.patch(`/voteDown/${id}`,email)
             console.log(res.data)
             if(res.data.modifiedCount>0){
                 refetch()
@@ -88,15 +83,13 @@ const ForumPage = () => {
           }
           
     }
-    //    {
-    //     "_id": "6793f7f7232e21be54d3a3d4",
-    //     "title": "core",
-    //     "details": "thijfsfjsfsfslfjfksf",
-    //     "image": "https://i.ibb.co.com/yNfCPmz/core-image.jpg"
-    // }
+
     const { _id, title, details, image,CreatorEmail} = forumpage || {}
     return (
         <div>
+            <Helmet>
+                <title>FitnessZone-Dashboard | Forum page</title>
+            </Helmet>
             <div className=" w-[100%] min-h-screen mx-auto mt-4">
                 <div className='w-[100%] h-[70px]'></div>
                 <div className='w-[70%] mx-auto'>
@@ -113,7 +106,6 @@ const ForumPage = () => {
                                     <button onClick={() => handelLike(item?._id)}><AiFillLike className='text-2xl' /></button>
                                     <button onClick={() => handelUnlike(item?._id)}><AiFillDislike className='text-2xl' /></button>
                                 </div>
-                                <div><Button>More</Button></div>
                             </div>
 
                         </div>)

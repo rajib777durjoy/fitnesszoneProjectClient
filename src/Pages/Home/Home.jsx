@@ -9,6 +9,7 @@ import Newsletter from './News/Newsletter';
 import About from './About/About';
 import TeamSection from './TeamSection/TeamSection';
 import Forum from '../DashbordItem/Admin/Forum';
+import ForumPost from './ForumPost/ForumPost';
 
 const Home = () => {
     const {name}=useAuth()
@@ -27,11 +28,11 @@ const Home = () => {
             <hr />
             <Testimonials></Testimonials>
             <hr />
-            <Forum></Forum>
-            <hr />
             <Newsletter></Newsletter>
             <hr />
             <TeamSection></TeamSection>
+            <hr />
+            <ForumPost></ForumPost>
         </div>
     );
 };
