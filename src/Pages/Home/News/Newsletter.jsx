@@ -37,7 +37,7 @@ const Newsletter = () => {
     return (
         <div className='w-[100%] my-4'>
             <h1 className='text-white text-center  my-3 text-4xl'> NewsLetter section</h1>
-            <Card className="w-[50%] mx-auto h-[300px]">
+            <Card className="md:w-[50%] w-[90%] mx-auto h-[300px]">
                 <h5 className="text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">
                     {user?.displayName}
                 </h5>

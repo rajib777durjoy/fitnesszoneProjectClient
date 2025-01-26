@@ -78,7 +78,7 @@ const Login = () => {
                         <TextInput {...register("password")} placeholder='Enter your Password' id="password1" type="password" required />
                         {errors.password && <span className="text-white">This field is required</span>}
                     </div>
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit">Login</Button>
                 </form>
                 <div className="w-[80%]  rounded-md my-4 mx-auto">
                     <Button onClick={handelGooglelogin} className="w-[100%]" type="btn">Google</Button>

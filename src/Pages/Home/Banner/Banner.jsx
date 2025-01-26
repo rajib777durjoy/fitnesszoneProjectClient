@@ -4,13 +4,14 @@ import bannerBg from '../../../assets/valery-sysoev-LDAirERNzew-unsplash.jpg'
 import { Button } from 'flowbite-react';
 const Banner = () => {
     return (
-        <div className='text-white  ' style={{
+        <div className='text-white  w-[100%] min-h-[500px] mb-5 ' style={{
             backgroundImage: `url('${bannerBg}')`,
             backgroundSize:'cover',
           }}>
-            <div className='w-[50%] mx-auto h-[300px] translate-y-56 my-5'>
-               <h1 className='text-center text-slate-400 my-3 font-extrabold text-4xl'>Welcome to FitnessZone - Your Journey to Health Starts Here!</h1>
-                <p className='text-center'>
+            <div className='w-[100%] h-[70px] md:h-0'></div>
+            <div className='w-[90%] md:w-[50%] mx-auto min-h-[400px] md:translate-y-56 md:my-5'>
+               <h1 className='text-center text-slate-400 md:my-3 font-extrabold text-4xl'>Welcome to FitnessZone - Your Journey to Health Starts Here!</h1>
+                <p className='md:text-center w-[100%] '>
                 At FitnessZone, we are dedicated to helping you achieve your fitness goals and live a healthier, happier life. Whether you're a beginner starting your fitness journey or an athlete looking to take it to the next level, we provide expert guidance, actionable tips, and the motivation you need. 
                 </p>
                 <div className='w-[20%] mx-auto my-2'><Link to='/allclasses'><Button>Show Classes</Button></Link></div>

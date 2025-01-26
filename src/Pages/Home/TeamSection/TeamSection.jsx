@@ -17,7 +17,7 @@ const TeamSection = () => {
     return (
         <div className='w-[100%] min-h-[400px] text-white'>
            <h1 className='text-white text-center my-4 text-4xl '>Team Section</h1>
-           <div className='grid md:grid-cols-3'>
+           <div className='w-[90%] mx-auto grid md:grid-cols-3 gap-4'>
              {
               team?.map(item=><Card className="max-w-sm">
                 

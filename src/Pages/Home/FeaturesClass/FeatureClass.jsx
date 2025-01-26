@@ -3,9 +3,9 @@ import React from 'react';
 
 const FeatureClass = () => {
     return (
-        <div className='w-[100%]'>
+        <div className='w-[100%] my-5 '>
             <h1 className='text-white text-center text-4xl font-bold my-4'>Features Class</h1>
-            <div className='w-[90%] mx-auto grid grid-cols-3 gap-2'>
+            <div className='w-[90%] mx-auto grid md:grid-cols-3 gap-4'>
                 <Card
                     className="max-w-sm"
                 >

@@ -8,8 +8,10 @@ const MainRoute = () => {
     return (
         <div className=' w-[100%] bg-slate-800 min-h-screen'>
             <HeaderNav></HeaderNav>
-            this is main page
-            <Outlet></Outlet>
+             <div className='w-[100%] '>
+             <Outlet></Outlet>
+             </div>
+            
             <div className='w-[100%] h-[100px]'></div>
             <FooterSection></FooterSection>
         </div>

@@ -8,18 +8,18 @@ import yoga from '../../../assets/Yoga.jpg'
 import bodyWeight from '../../../assets/Bodyweight.jpg'
 const Features = () => {
     return (
-        <div className='w-[100%] my-4'>
+        <div className='w-[100%] my-4 min-h-[500px]'>
             <h1 className='text-white text-4xl text-center font-bold my-5'>Featured Section</h1>
-            <div className='grid grid-cols-3 w-[90%] mx-auto py-4 gap-2 '>
-                <Card className="max-w-sm" imgSrc={stritchingImg} horizontal>
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <div className='grid md:grid-cols-3 w-[90%]  mx-auto py-4 gap-2 '>
+                <Card className="" imgSrc={stritchingImg} horizontal>
+                    <h5 className=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Stretching Guide
                     </h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
                         A simple guide with step-by-step instructions and animations for basic stretches to improve flexibility and reduce injury risk.
                     </p>
                 </Card>
-                <Card className="max-w-sm" imgSrc={GuidedMeditation} horizontal>
+                <Card className="" imgSrc={GuidedMeditation} horizontal>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Guided Meditation
                     </h5>
@@ -28,7 +28,7 @@ const Features = () => {
                         Icon/Image: A person meditating with a peaceful background
                     </p>
                 </Card>
-                <Card className="max-w-sm" imgSrc={Cardio} horizontal>
+                <Card className="" imgSrc={Cardio} horizontal>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Cardio Workouts
                     </h5>
@@ -36,7 +36,7 @@ const Features = () => {
                         Boost your heart health with fun and effective cardio exercises like HIIT, running, or cycling.
                     </p>
                 </Card>
-                <Card className="max-w-sm" imgSrc={Flexibility} horizontal>
+                <Card className="" imgSrc={Flexibility} horizontal>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Flexibility and Mobility
                     </h5>
@@ -44,7 +44,7 @@ const Features = () => {
                         Improve your range of motion and prevent injuries with dedicated stretching routines.
                     </p>
                 </Card>
-                <Card className="max-w-sm" imgSrc={yoga} horizontal>
+                <Card className="md:max-w-sm" imgSrc={yoga} horizontal>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Yoga Sessions
                     </h5>
@@ -52,7 +52,7 @@ const Features = () => {
                         Explore guided yoga classes for flexibility, strength, and mindfulness. Suitable for all levels.
                     </p>
                 </Card>
-                <Card className="max-w-sm" imgSrc={bodyWeight} horizontal>
+                <Card className="md:max-w-sm" imgSrc={bodyWeight} horizontal>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Bodyweight Exercises
                     </h5>

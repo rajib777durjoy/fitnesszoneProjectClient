@@ -41,7 +41,7 @@ const AllClass = () => {
    
     return (
         <div>
-            <div className='w-[100%] h-[70px]'></div>
+            <div className='w-[100%] h-[70px] '></div>
             <div className="w-[50%] mx-auto my-5">
                 <input onChange={(e)=>setsearch(e.target.value)} className="w-[100%] text-center bg-slate-300 rounded-md border outline-none" type="search" placeholder="Search by ClassName" name="search" id="" />
             </div>

@@ -13,11 +13,12 @@ import Forum from '../DashbordItem/Admin/Forum';
 const Home = () => {
     const {name}=useAuth()
     return (
-        <div>
+        <div >
             <Helmet>
                 <title>FitnessZone-Home</title>
             </Helmet>
             <Banner></Banner>
+            <hr />
             <Features></Features>
             <hr /> 
             <About></About>

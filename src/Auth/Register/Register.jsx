@@ -75,7 +75,7 @@ const Register = () => {
                         <TextInput {...register("password")} id="password1" type="password" required />
                         {errors.password && <span className="text-white">This field is required</span>}
                     </div>
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit">Register</Button>
                 </form>
                 <hr className="w-[90%] mx-auto mt-4" />
                 <p className="text-white text-center mt-4">Already have an Account ? <Link to='/login'>
