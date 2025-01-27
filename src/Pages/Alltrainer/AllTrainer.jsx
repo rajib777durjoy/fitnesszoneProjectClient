@@ -22,7 +22,7 @@ const AllTrainer = () => {
              <Helmet>
                 <title>FitnessZone-AllTrainer</title>
             </Helmet>
-            <div className='w-[90%] grid grid-cols-3 gap-2 h-auto mx-auto translate-y-20'>
+            <div className='w-[90%] grid md:grid-cols-3 gap-2 h-auto mx-auto translate-y-20'>
                     {
                         trainers?.map(trainer=><Card className="max-w-sm">
                             <div className="flex flex-col items-center pb-10">

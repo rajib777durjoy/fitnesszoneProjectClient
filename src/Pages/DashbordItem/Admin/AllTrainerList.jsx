@@ -31,7 +31,7 @@ const AllTrainerList = () => {
       }
     }
     return (
-        <div>
+        <div className="overflow-x-auto">
             {trainerList &&
             <Table>
                 <Table.Head>

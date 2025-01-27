@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Checkbox, Label, Textarea, TextInput } from "flowbite-react";
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
@@ -16,6 +16,14 @@ const Forum = () => {
     } = useForm()
  const axiosSecure =useAxios()
  const axiospublic=usePublickAxios()
+  useEffect(()=>{
+    axiosSecure('/forumbadge')
+    .then(res=>{
+        console.log(res.data)
+    })
+  },[])
+
+
     const onSubmit = async (data) => {
         // console.log(data)
         const imagefile = { image: data.image[0] }
@@ -47,6 +55,7 @@ const Forum = () => {
     }
     return (
         <div>
+            <h1 className='text-center text-white text-2xl'>Add New Forum</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="flex w-[80%] mx-auto flex-col gap-4">
                 <div>
                     <div className="mb-2 block">

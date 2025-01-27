@@ -100,7 +100,7 @@ const ForumPage = () => {
                                 <img src={item?.image} alt="" className='w-[100%] h-[300px]' />
                             </div>
                             <h3 className='text-white my-4 ms-4 text-xl font-semibold'>Details:<span className='text-xl font-light mx-2'>{item?.details}</span></h3>
-                            <h1>Vote:{item?.Vote}</h1>
+                            <h1 className='ms-4 md:ms-2'>Vote:{item?.Vote}</h1>
                             <div className='flex justify-between gap-10 my-4 px-10'>
                                 <div className='flex gap-10'>
                                     <button onClick={() => handelLike(item?._id)}><AiFillLike className='text-2xl' /></button>
@@ -112,7 +112,7 @@ const ForumPage = () => {
                     }
                 </div>
             </div>
-            <div className='w-[50%] mx-auto translate-x-32 h-[100px] my-2'>
+            <div className='w-[80%] md:w-[50%] mx-auto lg:translate-x-32 h-[100px] my-2'>
                 <button className="text-white border px-4 py-2 rounded-lg hover:bg-teal-500" onClick={() => setSelectbtn(Selectbtn > 0 ? Selectbtn - 1 : Selectbtn)}>Previous</button>
                 {
                     pages.map(page => <button onClick={() => setSelectbtn(page)} className={`text-white border px-4 py-2 mx-2 my-4 rounded-lg ${Selectbtn === page && 'bg-teal-500' || ''}`}>{page}</button>)

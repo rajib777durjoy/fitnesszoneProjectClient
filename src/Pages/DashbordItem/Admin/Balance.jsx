@@ -44,10 +44,10 @@ const Balance = () => {
     const slices = balance.slice(0, lis)
   
     return (
-        <div className='text-white'>
+        <div className='text-white w-[100%] min-h-screen'>
             <h1 className='text-center text-4xl'>Balance Page</h1>
-            <div className='w-[40%] mx-auto '>
-                <div>
+            <div className='w-[80%] lg:w-[40%] mx-auto '>
+              
                     <PieChart width={300} height={250}>
                         <Pie
                             data={data}
@@ -66,10 +66,11 @@ const Balance = () => {
                         <Legend></Legend>
                     </PieChart>
                     
-                </div>
+                
             </div>
-            <div className='text-white w-[90%] mx-auto h-[300px]'>
-                <h1 className='text-center text-3xl my-2'>TotalBalance:${totalbalance}</h1>
+            <h1 className='text-center text-3xl my-2'>TotalBalance:${totalbalance}</h1>
+            <div className='text-white w-[90%] mx-auto h-[300px] overflow-x-auto'>
+               
                 <Table>
                     <Table.Head>
                         <Table.HeadCell>#</Table.HeadCell>

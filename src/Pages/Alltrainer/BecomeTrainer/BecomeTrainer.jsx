@@ -20,6 +20,8 @@ const BecomeTrainer = () => {
     const [selectedDays, setSelectedDays] = useState([]);
     const [selectedTime, setSelectedTime] = useState([]);
     const [selectedsocial, setSelectedsocial] = useState([]);
+    const [selectedClass, setSelectedClass] = useState(null);
+
     const options = [
         { value: 'yoga flow', label: 'yoga flow' },
         { value: 'CoreFlow', label: 'CoreFlow' },
@@ -53,6 +55,17 @@ const BecomeTrainer = () => {
         { value: 'Twitter', label: 'Twitter' },
         { value: 'Linkedin', label: 'Linkedin' },
     ]
+    const classes = [
+        { value: 'yoga flow', label: 'yoga flow' },
+        { value: 'CoreFlow', label: 'CoreFlow' },
+        { value: 'Barre', label: 'Barre' },
+        { value: 'Flex&Stretch', label: 'Flex&Stretch' },
+        { value: 'Pilates', label: 'Pilates' },
+        { value: 'CardioCrush', label: 'CardioCrush' },
+        { value: 'Core', label: 'Core' },
+        { value: 'Hiit', label: 'Hiit' },
+
+    ]
 
     console.log(selectedOption)
     const skills = selectedOption.map(item => item)
@@ -84,6 +97,8 @@ const BecomeTrainer = () => {
             }
         })
         console.log(res.data.data.display_url)
+        const{value}= selectedClass;
+        const classes=value;
         if (res.data.success) {
             const trainerInfo = {
                 name: data.name,
@@ -96,6 +111,7 @@ const BecomeTrainer = () => {
                 experience: data.experience,
                 socialIcon:icons,
                 hours: data.ClassDuration,
+                Class:classes,
                 description: data.description,
                 status: 'pending'
             }
@@ -217,7 +233,16 @@ const BecomeTrainer = () => {
                                 <TextInput {...register("ClassDuration")} id="ClasssDuration" type="number" placeholder="Class Duration" required />
                         </div>
                     </div>
-
+               
+                    <div className="mb-2 block">
+                                <Label htmlFor="time" value="Select Class" />
+                            </div>
+                            <Select
+                                value={selectedClass}
+                                onChange={(e) => setSelectedClass(e)}
+                                options={classes}  
+                            />
+                   
                     <Textarea id="comment" {...register("description")} placeholder="Bio..." required rows={4} />
                     <Button type="submit">Apply</Button>
                 </form>

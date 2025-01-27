@@ -12,7 +12,9 @@ const Newsletter = () => {
             name:user?.displayName,
             email:user?.email,
             date:new Date(),
-            role:'member'
+            role:'member',
+            image:user?.photoURL,
+            userObject:user?.metadata?.lastSignInTime,
         }
        const res= await axiosSequre.post(`/user`,userInfo);
        console.log(res.data)

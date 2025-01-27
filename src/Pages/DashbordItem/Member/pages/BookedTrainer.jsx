@@ -7,7 +7,9 @@ const BookedTrainer = () => {
             <Helmet>
                 <title>FitnessZone-Dashboard|BookedTrainer-page</title>
             </Helmet>
-            this is bookdjfodjf
+           <div>
+               
+           </div>
         </div>
     );
 };

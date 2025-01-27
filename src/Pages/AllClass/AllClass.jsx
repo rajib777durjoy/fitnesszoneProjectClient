@@ -42,13 +42,13 @@ const AllClass = () => {
     return (
         <div>
             <div className='w-[100%] h-[70px] '></div>
-            <div className="w-[50%] mx-auto my-5">
+            <div className="w-[90%] md:w-[50%] mx-auto my-5">
                 <input onChange={(e)=>setsearch(e.target.value)} className="w-[100%] text-center bg-slate-300 rounded-md border outline-none" type="search" placeholder="Search by ClassName" name="search" id="" />
             </div>
             <div className="w-[100%] grid md:grid-cols-3 gap-4 lg:grid-cols-4">
             {
-                classData?.map(item=><Card className="max-w-sm">
-                    <div className="flex justify-center px-4 pt-4">
+                classData?.map(item=><Card className="w-[90%] mx-auto md:max-w-sm">
+                    <div className="flex justify-center md:px-4 pt-4">
                       <img src={item?.image} className="w-[100px] h-[100px]" alt="" />
                     </div>
                     <div className="flex flex-col items-center pb-10">
@@ -62,7 +62,7 @@ const AllClass = () => {
                   </Card>)
             }
             </div>
-            <div className=" w-[50%] mx-auto translate-x-48 mt-4">
+            <div className="w-[90%] md:w-[50%] mx-auto lg:translate-x-48 mt-4">
                 <button className="text-white border px-4 py-2 rounded-lg hover:bg-teal-500" onClick={()=>setSelectbtn(Selectbtn>0?Selectbtn-1:Selectbtn)}>Previous</button>
                 {
                     pages.map(page=><button onClick={()=>setSelectbtn(page)} className={`text-white border px-4 py-2 mx-2 my-4 rounded-lg ${Selectbtn === page && 'bg-teal-500' || ''}`}>{page}</button>)
