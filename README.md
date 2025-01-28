@@ -2,8 +2,7 @@
 2.Admin_
   *userName:rajibchando,
   *UserEmail:rajib777chanda@gmail.com,
-  *password:1122334
-3.Live site url:https://finesszone.web.app
+3.Live site url:https://assignment12-f557e.web.app
 4.website fetures :-
   # 1 User Profiles:
    Allow users to create personalized profiles with their update your profile.

@@ -28,7 +28,9 @@ const TrainerDetails = () => {
             name: name,
             slot: slot,
             useremail: user?.email,
+            userName:user?.displayName,
             Classes: Class,
+            trainerEmail:email,
             date: new Date()
         }
         const res = await axiosPublic.post(`/slot`, trainerInfo)

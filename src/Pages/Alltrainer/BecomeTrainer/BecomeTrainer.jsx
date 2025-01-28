@@ -23,7 +23,7 @@ const BecomeTrainer = () => {
     const [selectedClass, setSelectedClass] = useState(null);
 
     const options = [
-        { value: 'yoga flow', label: 'yoga flow' },
+        { value: 'yogaflow', label: 'yogaflow' },
         { value: 'CoreFlow', label: 'CoreFlow' },
         { value: 'Barre', label: 'Barre' },
         { value: 'Flex&Stretch', label: 'Flex&Stretch' },

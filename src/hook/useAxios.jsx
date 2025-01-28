@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
 
 const instance = axios.create({
-    baseURL:`http://localhost:9000`
+    baseURL:`https://fitness-zone-server-xi.vercel.app`
 })
 const useAxios = () => {
     const navigetes=useNavigate()

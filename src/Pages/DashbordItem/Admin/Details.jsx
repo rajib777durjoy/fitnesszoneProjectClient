@@ -27,8 +27,14 @@ const Details = () => {
     console.log(_id)
     const statusInfo = {
       id: _id,
-      status: 'success'
+      status: 'success',
+      email,
+      name,
     }
+    axiosSecure.post('/setTouserDb',statusInfo)
+    .then(respons=>{
+      console.log('setTouserDb',respons.data)
+    })
     axiosSecure.patch('/statusChange', statusInfo)
       .then(res => {
         console.log(res.data)
@@ -40,6 +46,7 @@ const Details = () => {
             showConfirmButton: false,
             timer: 1500
           });
+        
           axiosSecure.delete(`/applied/${id}`)
             .then(res => {
               console.log(res.data)

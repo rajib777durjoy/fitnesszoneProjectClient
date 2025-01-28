@@ -44,7 +44,7 @@ const router =createBrowserRouter([
             {
               path:'/allclasses',
               element:<AllClass></AllClass>,
-              loader:()=>fetch(`http://localhost:9000/totalclass`)
+              loader:()=>fetch(`https://fitness-zone-server-xi.vercel.app/totalclass`)
             },
             {
                 path:'/tainerDetails/:id',
@@ -61,7 +61,7 @@ const router =createBrowserRouter([
             {
                 path:'/forums',
                 element:<ForumPage></ForumPage>,
-                loader:()=>fetch(`http://localhost:9000/totalforum`)
+                loader:()=>fetch(`https://fitness-zone-server-xi.vercel.app/totalforum`)
             },
             {
                 path:'/login',

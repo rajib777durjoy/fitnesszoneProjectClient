@@ -84,7 +84,8 @@ const ForumPage = () => {
           
     }
 
-    const { _id, title, details, image,CreatorEmail} = forumpage || {}
+    const { _id, title, details, image,CreatorEmail,badge} = forumpage || {}
+    console.log(forumpage)
     return (
         <div>
             <Helmet>
@@ -95,12 +96,7 @@ const ForumPage = () => {
                 <div className='w-[70%] mx-auto'>
                     {
                         forumpage.map(item => <div className='mb-10 py-5 w-[100%] mx-auto bg-slate-400 rounded-lg ' key={item?._id}>
-                            <h1 className='text-white my-4 ms-4 text-xl font-semibold'>Title:<span className=' mx-2 text-xl font-light'>{item?.title}</span></h1>
-                            <div className='w-[100%] my-2'>
-                                <img src={item?.image} alt="" className='w-[100%] h-[300px]' />
-                            </div>
-                            <h3 className='text-white my-4 ms-4 text-xl font-semibold'>Details:<span className='text-xl font-light mx-2'>{item?.details}</span></h3>
-                            <h1 className='ms-4 md:ms-2'>Vote:{item?.Vote}</h1>
+                            
                             <div className='flex justify-between gap-10 my-4 px-10'>
                                 <div className='flex gap-10'>
                                     <button onClick={() => handelLike(item?._id)}><AiFillLike className='text-2xl' /></button>
