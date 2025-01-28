@@ -12,11 +12,9 @@ const Newsletter = () => {
             name:user?.displayName,
             email:user?.email,
             date:new Date(),
-            role:'member',
             image:user?.photoURL,
-            userObject:user?.metadata?.lastSignInTime,
         }
-       const res= await axiosSequre.post(`/user`,userInfo);
+       const res= await axiosSequre.post(`/subcribe`,userInfo);
        console.log(res.data)
        if(res.data.message){
         Swal.fire({
@@ -30,7 +28,7 @@ const Newsletter = () => {
         Swal.fire({
             position: "top-center",
             icon: "success",
-            title: "user set database",
+            title: "set Subcriber database",
             showConfirmButton: false,
             timer: 1500
           });

@@ -11,6 +11,7 @@ const AllClass = () => {
    const [count,setcount]=useState(Data?.totalPage)
    const [classData,setclassData]=useState([])
    const [search,setsearch]=useState('');
+   const [Trainer,setTrainer]=useState([])
    const numberOffPages= Math.ceil(count / itemsPerPage)
    const pages=[...Array(numberOffPages).keys()]
    const axiosSecure=useAxios()
@@ -21,10 +22,10 @@ const AllClass = () => {
         setclassData(data.data)
     })
 
-    axiosSecure.get('/classbyTrainer')
-    .then(res=>{
-      console.log('classbytrainer',res.data)
-    })
+  // axiosSecure(`/classByTrainer`)
+  // .then(res=>{
+  //   setTrainer(res.data)
+  // })
  },[Selectbtn,search])
 
  if(search){
@@ -33,11 +34,8 @@ const AllClass = () => {
         setclassData(value.data)
     })
  }
- else{
-  
- }
- 
-   const {_id,name,image,details}=classData || {};
+
+  const {_id,name,image,details}=classData || {};
    
     return (
         <div>
@@ -53,10 +51,10 @@ const AllClass = () => {
                     </div>
                     <div className="flex flex-col items-center pb-10">
                       
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green:{item?.name}</h5>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">Visual Designer:{item?.details}</span>
+                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">ClassName:{item?.name}</h5>
+                      <span className="text-sm text-gray-500 dark:text-gray-400">Class Details:{item?.details}</span>
                       <div className="mt-4 flex space-x-3 lg:mt-6">
-                        
+                         
                       </div>
                     </div>
                   </Card>)

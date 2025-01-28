@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Button, Card, Dropdown, Modal, Checkbox, TextInput } from "flowbite-react";
+import { Button, Card, Modal, Checkbox, TextInput } from "flowbite-react";
 import { useQuery } from '@tanstack/react-query';
 import useAxios from '../../../../hook/useAxios';
 import useAuth from '../../../../hook/useAuth';
@@ -26,7 +26,7 @@ const Profile = () => {
             return res.data;
         }
     })
-    const { _id, name, email, image, userObject } = profileInfo;
+    const { _id, name, email, image, lastLogin } = profileInfo;
     console.log('usfhfsdfs', userName)
     const updateProfile = (id) => {
         console.log(id)
@@ -46,7 +46,7 @@ const Profile = () => {
             const updateInfo = {
                 name: userName,
                 email: data.email,
-                image: res.data.data.display_url
+                image: res.data.data.display_url,
             }
             const updatedData = await axiosSecure.put(`/update/${_id}`, updateInfo)
             // console.log(classData.data.insertedId)
@@ -69,38 +69,13 @@ const Profile = () => {
 
                 <Card className="max-w-sm lg:max-w-2xl min-h-[350px] lg:min-h-[400px] mx-auto mt-20">
                     <div className="flex justify-end px-4 pt-4">
-                        <Dropdown inline label="">
-                            <Dropdown.Item>
-                                <a
-                                    href="#"
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                                >
-                                    Edit
-                                </a>
-                            </Dropdown.Item>
-                            <Dropdown.Item>
-                                <a
-                                    href="#"
-                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                                >
-                                    Export Data
-                                </a>
-                            </Dropdown.Item>
-                            <Dropdown.Item>
-                                <a
-                                    href="#"
-                                    className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-                                >
-                                    Delete
-                                </a>
-                            </Dropdown.Item>
-                        </Dropdown>
+                        
                     </div>
                     <div className="flex flex-col items-center pb-10">
                         <img src={profileInfo?.image} alt="" />
                         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{name}</h5>
                         <span className="text-sm text-gray-500 dark:text-gray-400">{email}</span>
-                        <h1 className="text-sm text-gray-500 dark:text-gray-400">Last login status:{profileInfo?.userObject}</h1>
+                        <h1 className="text-sm text-gray-500 dark:text-gray-400">Last login status:{profileInfo?.lastLogin}</h1>
                         <div className="mt-4 flex space-x-3 lg:mt-6">
                             <Button onClick={() => { updateProfile(_id) }}>Updata Profile</Button>
                         </div>

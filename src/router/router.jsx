@@ -22,6 +22,8 @@ import AllTrainerList from '../Pages/DashbordItem/Admin/AllTrainerList';
 import Activity from '../Pages/DashbordItem/Member/pages/Activity';
 import Profile from '../Pages/DashbordItem/Member/pages/Profile';
 import BookedTrainer from '../Pages/DashbordItem/Member/pages/BookedTrainer';
+import Manage from '../Pages/DashbordItem/Trainer/Manage';
+import AddSlot from '../Pages/DashbordItem/Trainer/AddSlot';
 
 
 
@@ -42,7 +44,7 @@ const router =createBrowserRouter([
             {
               path:'/allclasses',
               element:<AllClass></AllClass>,
-              loader:()=>fetch(`https://fitness-zone-server-xi.vercel.app/totalclass`)
+              loader:()=>fetch(`http://localhost:9000/totalclass`)
             },
             {
                 path:'/tainerDetails/:id',
@@ -59,7 +61,7 @@ const router =createBrowserRouter([
             {
                 path:'/forums',
                 element:<ForumPage></ForumPage>,
-                loader:()=>fetch(`https://fitness-zone-server-xi.vercel.app/totalforum`)
+                loader:()=>fetch(`http://localhost:9000/totalforum`)
             },
             {
                 path:'/login',
@@ -120,6 +122,14 @@ const router =createBrowserRouter([
             {
                 path:'bookedtrainer',
                 element:<BookedTrainer></BookedTrainer>
+            },
+            {
+                path:'Manage',
+                element:<Manage></Manage>
+            },
+            {
+                path:'AddnewSlot',
+                element:<AddSlot></AddSlot>
             },
         ]
     }

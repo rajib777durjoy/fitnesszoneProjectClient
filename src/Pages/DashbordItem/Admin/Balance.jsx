@@ -40,9 +40,8 @@ const Balance = () => {
             </text>
         );
     };
-    const lis = balance.length - 5
-    const slices = balance.slice(0, lis)
-  
+    const slices = balance.slice(-6)
+    console.log(slices)
     return (
         <div className='text-white w-[100%] min-h-screen'>
             <h1 className='text-center text-4xl'>Balance Page</h1>

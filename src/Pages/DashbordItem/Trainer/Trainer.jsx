@@ -1,35 +1,15 @@
-import { Sidebar } from 'flowbite-react';
+
 import { Helmet } from 'react-helmet-async';
-import { HiUser } from "react-icons/hi";
+import { Link } from 'react-router-dom';
 const Trainer = () => {
     return (
         <div>
             <Helmet>
                 <title>FitnessZone-Dashboard|Trainer</title>
             </Helmet>
-            <Sidebar.ItemGroup>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Manage Slots
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Add New slot
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Add new Forum
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Users
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Products
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Sign In
-                </Sidebar.Item>
-                <Sidebar.Item href="#" icon={HiUser}>
-                    Sign Up
-                </Sidebar.Item>
-            </Sidebar.ItemGroup>
+            <Link to='Manage'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Manage Slots</li></Link>
+            <Link to='AddnewSlot'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Add New slot</li></Link>
+            <Link to='addforum'><li className="text-white border border-transparent hover:bg-slate-400 ps-4 py-4 list-none font-medium text-xl my-5">Add new Forum</li></Link>
         </div>
     );
 };

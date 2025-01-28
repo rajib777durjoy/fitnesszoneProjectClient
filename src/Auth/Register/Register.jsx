@@ -7,14 +7,16 @@ import { updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import usePublickAxios from "../../hook/usePublickAxios";
 const Register = () => {
     const { createUser } = useAuth()
-    const navigate = useNavigate()
+    const navigateHome = useNavigate()
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm()
+    const axiospublic=usePublickAxios()
     const onSubmit = (data) => {
         console.log(data)
         const name = data.name;
@@ -22,20 +24,36 @@ const Register = () => {
         const photoUrl = data.photoUrl;
         const password = data.password;
         createUser(email, password).then(res => {
-            console.log(res.user)
+            // console.log('hfsdfjsfjsd',res.user)
             if (res.user) {
                 updateProfile(auth.currentUser, {
                     displayName: name,
                     photoURL: photoUrl
-                }).then(res => {
-                    Swal.fire({
-                        position: "top-center",
-                        icon: "success",
-                        title: "Register  successful",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    navigate('/')
+                }).then(()=>{
+                    console.log('hdlkfjdofjds',res.user.photoURL,res.user.metadata.lastSignInTime)
+                    const userInfo={
+                        name:res.user.displayName,
+                        email:res.user.email,
+                        image:res.user.photoURL,
+                        role:"member",
+                        lastLogin:res.user.metadata.lastSignInTime
+                    }
+                    console.log('userInfo',userInfo)
+                    axiospublic.post('/user',userInfo)
+                    .then(response=>{
+                        console.log(response.data)
+                        if(response.data.insertedId){
+                            navigateHome('/')
+                            Swal.fire({
+                                position:"top-end",
+                                icon: "success",
+                                title: "register successful",
+                                showConfirmButton: false,
+                                timer: 1500
+                              });
+                              
+                        }
+                    })
                 })
             }
         })

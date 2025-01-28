@@ -38,6 +38,7 @@ const Forum = () => {
                 details: data.details,
                 image: res.data.data.display_url,
                 CreatorEmail:user?.email,
+                link:data.link,
             }
             console.log('forumData',froumInfo)
             const forumData = await axiosSecure.post('/addFroum', froumInfo)
@@ -68,6 +69,12 @@ const Forum = () => {
                         <Label className='text-white' htmlFor="photo" value="Image" />
                     </div>
                     <TextInput {...register("image")} id="photo" type='file' required />
+                </div>
+                <div>
+                    <div className="mb-2 block">
+                        <Label className='text-white' htmlFor="link" value="link" />
+                    </div>
+                    <TextInput {...register("link")} id="link" type="url" required />
                 </div>
                 <div className="mb-2 block">
                     <Label className='text-white' htmlFor="comment" value="Your message" />

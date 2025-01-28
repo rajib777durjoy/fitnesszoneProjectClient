@@ -4,10 +4,11 @@ import useAuth from '../../hook/useAuth';
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import usePublickAxios from "../../hook/usePublickAxios";
 
 const Login = () => {
     const { userlogin, SocialLogin } = useAuth()
-
+    const axiospublic = usePublickAxios()
     const navigate = useNavigate()
     const {
         register,
@@ -38,17 +39,31 @@ const Login = () => {
     const handelGooglelogin = () => {
 
         SocialLogin().then(res => {
-            console.log('google', res)
-            Swal.fire({
-                position: "top-center",
-                icon: "success",
-                title: "Google login successful",
-                showConfirmButton: false,
-                timer: 1500
-            });
-            navigate('/')
+            // console.log('google', res.user.email)
+            const userInfo = {
+                name: res.user?.displayName,
+                email: res.user?.email,
+                image: res.user?.photoURL,
+                role: "member",
+                lastLogin: res.user.metadata.lastSignInTime
+            }
+            // console.log('userinosdfs', userInfo)
+            axiospublic.post('/user', userInfo)
+                .then(response => {
+                        navigate('/')
+                        Swal.fire({
+                            position: "top-center",
+                            icon: "success",
+                            title: "Google login successful",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
+                    
+                })
+
         }).catch(err => {
-            console.log(err)
+            // console.log(err)
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
