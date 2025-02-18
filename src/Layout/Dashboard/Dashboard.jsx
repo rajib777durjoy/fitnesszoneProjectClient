@@ -35,8 +35,7 @@ const Dashboard = () => {
             <Helmet>
                 <title>FitnessZone-Dashboard</title>
             </Helmet>
-            <div className="w-[100%] text-black  flex justify-between">
-                
+            <div className="w-[100%] text-black  flex justify-between">    
             {toggle &&
                 <div className='w-[50%] min-h-[675px]  py-2 absolute top-14 z-50 bg-slate-100 lg:w-[20%] border '>
                      <button className='text-center text-black' onClick={()=>setToggle(!toggle)}><IoMdClose className='text-4xl ' /></button>
@@ -54,7 +53,6 @@ const Dashboard = () => {
                     </div>
                 </div>
             }
-
             <div className='w-[100%] border '>
             <Navbar fluid rounded>
       <Navbar.Brand as={Link} href="https://flowbite-react.com">
