@@ -13,15 +13,6 @@ const ForumPost = () => {
         }
     })
     const slices = forum.slice(-6)
-    console.log(slices)
-    // {
-    //     "_id": "67952d44bb96d6a9c44382bf",
-    //     "title": " Monitor",
-    //     "details": "Monitor your daily activities, calories burned, and workouts with our user-friendly fitness tracker",
-    //     "image": "https://i.ibb.co.com/Hqvvz2m/Cardioworkout-Img.jpg",
-    //     "Vote": 1,
-    //     "votarEmail": "rajib777chanda@gmail.com"
-    // }
     return (
         <div className='w-[100%] mx-auto bg-slate-50 min-h-screen py-10'>
             <h1 className='text-center text-4xl font-bold mb-5'>Post list</h1>
