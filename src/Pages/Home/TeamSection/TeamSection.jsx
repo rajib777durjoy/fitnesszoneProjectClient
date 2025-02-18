@@ -39,7 +39,7 @@ const TeamSection = () => {
                       
                    </div>
                    <h1 className='text-black'>Experience:{item?.experience}</h1>
-                   <p  className='text-black'>Description:{item?.description.slice(0,200)}</p>
+                   <p  className='text-black'>Description:{item?.description.slice(0,50)}</p>
                 </div>
               </Card>)  
              }
