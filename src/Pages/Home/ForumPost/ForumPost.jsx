@@ -27,7 +27,7 @@ const ForumPost = () => {
             <h1 className='text-center text-4xl font-bold mb-5'>Post list</h1>
             <div className=' w-[90%] grid md:grid-cols-3 gap-2 mx-auto'>
             {
-                slices?.map(item => <div className='mb-10 py-5  mx-auto bg-slate-200 rounded-lg ' key={item?._id}>
+                slices?.map(item => <div className='mb-10 py-5 bg-slate-200 rounded-lg ' key={item?._id}>
                     <Link to={`${item?.link}`} target="_blank"><h1 className=' my-4 ms-4 text-xl font-semibold'>Title:<span className=' mx-2 text-xl font-light'>{item?.title.slice(0,30)}</span></h1></Link>
                     <div className='w-[100%] my-2'>
                         <img src={item?.image} alt="" className='w-[100%] h-[300px]' />
