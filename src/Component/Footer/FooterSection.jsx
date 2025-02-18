@@ -31,7 +31,7 @@ const FooterSection = () => {
                     </address>
                     </div>
                 </div>
-                <div className='w-[100%] flex flex-col justify-center items-center md:w-[50%] mx-auto  '>
+                <div className='w-[100%] flex flex-col justify-center items-center md:w-[50%] mx-auto'>
                     <h1 className='text-white text-start text-2xl'>Send Your Contact Information</h1>
                     <form className='w-[100%] flex flex-col'>
                      <input className='w-[80%] mx-auto my-2 rounded-md' type="text"  placeholder='Enter Your Name'/>
