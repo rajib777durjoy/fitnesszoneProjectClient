@@ -9,7 +9,7 @@ const HeaderNav = () => {
     <li className="mx-2 text-white text-lg"><NavLink to='/'>Home</NavLink></li>
     <li className="mx-2 text-white text-lg"><NavLink to='/alltrainer'>All Traine</NavLink></li>
     <li className="mx-2 text-white text-lg"><NavLink to='/allclasses'>All Classes </NavLink></li>
-    <li className="mx-2 text-white text-lg"><NavLink to='/forums'>Forums page</NavLink></li>
+    <li className="mx-2 text-white text-lg"><NavLink to='/forums'>Forums</NavLink></li>
     {user?<li className="mx-2 text-white text-lg"><NavLink to='/dashboard'>Dashboard</NavLink></li>:''}
     </>
     const handellogout=()=>{

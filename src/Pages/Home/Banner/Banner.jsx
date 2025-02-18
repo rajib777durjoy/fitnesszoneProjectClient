@@ -4,7 +4,7 @@ import bannerBg from '../../../assets/valery-sysoev-LDAirERNzew-unsplash.jpg'
 import { Button } from 'flowbite-react';
 const Banner = () => {
     return (
-        <div className='text-white  w-[100%] min-h-[500px] mb-5 ' style={{
+        <div className='text-white  w-[100%] min-h-[500px]' style={{
             backgroundImage: `url('${bannerBg}')`,
             backgroundSize:'cover',
           }}>

@@ -19,12 +19,13 @@ const Testimonials = () => {
     //     "rating": "4"
     // }
     return (
-        <div className='w-[100%] min-h-screen'>
-            <Carousel className='h-[500px] w-[80%] mx-auto'>
+        <div className='w-[100%] min-h-[400px] bg-slate-50 py-10'>
+            <h1 className='text-center text-4xl font-bold'>Testimonials</h1>
+            <Carousel className='h-[250px] w-[90%] mx-auto text-black'>
                 {
-                    reviews.map(item => <div className='text-white text-center'>
-                        <div>review:{item?.review}</div>
-                         <div>rating:{item?.rating}</div>
+                    reviews.map(item => <div className='text-center text-2xl w-[70%] '>
+                        <div>Review:{item?.review}</div>
+                         <div>Rating:{item?.rating}</div>
                     </div>)
                 }
 

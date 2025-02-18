@@ -35,10 +35,10 @@ const Newsletter = () => {
        }
     }
     return (
-        <div className='w-[100%] my-4'>
-            <h1 className='text-white text-center  my-3 text-4xl'> NewsLetter section</h1>
-            <Card className="md:w-[50%] w-[90%] mx-auto h-[300px]">
-                <h5 className="text-2xl font-bold text-center tracking-tight text-gray-900 dark:text-white">
+        <div className='w-[100%] py-10 bg-slate-100 '>
+            <h1 className=' text-black text-center  my-3 text-4xl'> NewsLetter section</h1>
+            <Card className="md:w-[50%] w-[90%] mx-auto h-[300px] text-black">
+                <h5 className="text-2xl font-bold text-center tracking-tight text-black">
                     {user?.displayName}
                 </h5>
                 <p className="font-normal text-gray-700 text-center dark:text-gray-400">

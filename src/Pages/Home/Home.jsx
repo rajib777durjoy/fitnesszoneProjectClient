@@ -19,20 +19,17 @@ const Home = () => {
                 <title>FitnessZone-Home</title>
             </Helmet>
             <Banner></Banner>
-            <hr />
+            
             <Features></Features>
-            <hr /> 
+           
             <About></About>
-            <hr />
+           
             <FeatureClass></FeatureClass>
-            <hr />
+            
             <Testimonials></Testimonials>
-            <hr />
-            <Newsletter></Newsletter>
-            <hr />
             <TeamSection></TeamSection>
-            <hr />
             <ForumPost></ForumPost>
+            <Newsletter></Newsletter>
         </div>
     );
 };

@@ -6,12 +6,11 @@ import FooterSection from '../Component/Footer/FooterSection';
 
 const MainRoute = () => {
     return (
-        <div className=' w-[100%] bg-slate-800 min-h-screen'>
+        <div className=' w-[100%] min-h-screen '>
             <HeaderNav></HeaderNav>
              <div className='w-[100%] '>
              <Outlet></Outlet>
              </div>
-            
             <div className='w-[100%] h-[100px]'></div>
             <FooterSection></FooterSection>
         </div>
