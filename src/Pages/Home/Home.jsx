@@ -10,6 +10,7 @@ import About from './About/About';
 import TeamSection from './TeamSection/TeamSection';
 import Forum from '../DashbordItem/Admin/Forum';
 import ForumPost from './ForumPost/ForumPost';
+import Success from '../../Success/Success';
 
 const Home = () => {
     const {name}=useAuth()
@@ -19,7 +20,7 @@ const Home = () => {
                 <title>FitnessZone-Home</title>
             </Helmet>
             <Banner></Banner>
-            
+            <Success></Success>
             <Features></Features>
            
             <About></About>
