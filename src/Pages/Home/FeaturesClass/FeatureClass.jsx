@@ -1,50 +1,39 @@
+import { useQuery } from '@tanstack/react-query';
 import { Card } from 'flowbite-react';
 import React from 'react';
+import usePublickAxios from '../../../hook/usePublickAxios';
 
 const FeatureClass = () => {
+    const axiosPublic=usePublickAxios()
+    const {data:classlist=[]}=useQuery({
+        queryKey:['class'],
+        queryFn:async()=>{
+        const res= await axiosPublic('/featureClass');
+        console.log(res.data) 
+        return res.data;
+        }
+    })
+   console.log('classlist',classlist)
     return (
         <div className='w-[100%] bg-slate-100'>
             <h1 className=' text-center text-4xl font-bold py-10'>Features Class</h1>
             <div className='w-[90%] mx-auto grid md:grid-cols-3 gap-4 py-4'>
-                <Card
+               {
+                classlist.slice(0,6).map(item=><Card key={item?._id}
                     className="max-w-sm"
                 >
+                    <div className='w-[90%] mx-auto'>
+                        <img src={item?.image} alt="" className='w-[100%] h-[200px] '  />
+                    </div>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Noteworthy technology acquisitions 2021
+                        {item?.name}
                     </h5>
                     <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+                       {item?.details.slice(0,60)}
                     </p>
-                </Card>
-                <Card
-                    className="max-w-sm"
-                >
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Noteworthy technology acquisitions 2021
-                    </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                    </p>
-                </Card>
-                <Card
-                    className="max-w-sm"
-                >
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Noteworthy technology acquisitions 2021
-                    </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                    </p>
-                </Card>
-                <Card
-                    className="max-w-sm">
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        Noteworthy technology acquisitions 2021
-                    </h5>
-                    <p className="font-normal text-gray-700 dark:text-gray-400">
-                        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-                    </p>
-                </Card>
+                </Card>)
+               }
+               
             </div>
         </div>
 
