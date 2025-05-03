@@ -33,6 +33,5 @@ const Home = () => {
             <Newsletter></Newsletter>
         </div>
     );
-};
-
+}; 
 export default Home;
