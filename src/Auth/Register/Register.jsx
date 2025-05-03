@@ -41,8 +41,9 @@ const Register = () => {
                     console.log('userInfo',userInfo)
                     axiospublic.post('/user',userInfo)
                     .then(response=>{
-                        console.log(response.data)
-                        if(response.data.insertedId){
+                        // console.log(response.data)
+                        if(response.data?.insertedId){
+                            
                             navigateHome('/')
                             Swal.fire({
                                 position:"top-end",

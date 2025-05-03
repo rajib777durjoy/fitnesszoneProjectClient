@@ -15,7 +15,7 @@ import Success from '../../Success/Success';
 const Home = () => {
     const {name}=useAuth()
     return (
-        <div >
+        <div className='w-[100%] '>
             <Helmet>
                 <title>FitnessZone-Home</title>
             </Helmet>

@@ -72,7 +72,7 @@ const Profile = () => {
                         
                     </div>
                     <div className="flex flex-col items-center pb-10">
-                        <img src={profileInfo?.image} alt="" />
+                        <img src={profileInfo?.image} alt="" className='w-[50px] h-[50px] rounded-full' />
                         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{name}</h5>
                         <span className="text-sm text-gray-500 dark:text-gray-400">{email}</span>
                         <h1 className="text-sm text-gray-500 dark:text-gray-400">Last login status:{profileInfo?.lastLogin}</h1>

@@ -10,9 +10,9 @@ const Member = () => {
             </Helmet>
             
             <div className="w-[100%]">
-                <Link to='activity'><li className=" border border-transparent hover:bg-slate-50 ps-4 py-4 list-none font-medium text-xl my-5">Activity Log page</li></Link>
-                <Link to='profile'><li className=" border border-transparent hover:bg-slate-50 ps-4 py-4 list-none font-medium text-xl my-5">Profile Page</li></Link>
-                <Link to='bookedtrainer'><li className=" border border-transparent hover:bg-slate-50 ps-4 py-4 list-none font-medium text-xl my-5">Booked Trainer</li></Link>
+                <Link to='activity'><li className=" border border-transparent hover:bg-slate-50 ps-4 py-4 list-none font-medium text-lg lg:text-xl my-5">Activity Log page</li></Link>
+                <Link to='profile'><li className=" border border-transparent hover:bg-slate-50 ps-4 py-4 list-none font-medium text-lg lg:text-xl my-5">Profile Page</li></Link>
+                <Link to='bookedtrainer'><li className=" border border-transparent hover:bg-slate-50 ps-4 py-4 list-none font-medium text-lg lg:text-xl my-5">Booked Trainer</li></Link>
             </div>
             
         </div>

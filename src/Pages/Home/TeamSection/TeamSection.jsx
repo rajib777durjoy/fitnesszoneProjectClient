@@ -17,7 +17,7 @@ const TeamSection = () => {
     return (
         <div className='w-[100%] min-h-[400px] py-10 bg-slate-100'>
            <h1 className=' text-center mb-4 text-4xl font-bold '>Team Section</h1>
-           <div className='w-[90%] mx-auto grid md:grid-cols-3 gap-4'>
+           <div className='w-[90%] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
              {
               team?.map(item=><Card className="">
                 
@@ -29,17 +29,16 @@ const TeamSection = () => {
                     width="96"
                     className="mb-3 rounded-full shadow-lg"
                   />
-                  <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Name:{item?.name}</h5>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Email:{item?.email}</span>
-  
-                      <h1 className='text-black text-center'>Skills</h1>
-                      <div className='w-[100%] text-center mx-auto gap-2 grid md:grid-cols-3 lg:grid-cols-4'>
-                      {item?.skills?.map(skill=><li className='text-black flex'>{skill}</li>)}
-                  
-                      
+                  <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{item?.name}</h5>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">{item?.email}</span>
+                  <h1 className='text-black text-start font-bold '>Experience: {item?.experience}</h1>
+                      <h1 className='text-black text-center my-2'></h1>
+                      <div className='w-[100%] text-center mx-auto gap-2 '>
+                      {item?.skills?.map(skill=><li className=' text-center border rounded-md  text-black flex my-1 font-bold'>{skill}</li>)}
+                
                    </div>
-                   <h1 className='text-black'>Experience:{item?.experience}</h1>
-                   <p  className='text-black'>Description:{item?.description.slice(0,50)}</p>
+                   
+                   <p  className='text-black'>{item?.description.slice(0,50)}</p>
                 </div>
               </Card>)  
              }
