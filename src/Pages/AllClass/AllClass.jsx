@@ -38,34 +38,30 @@ const AllClass = () => {
   const {_id,name,image,details}=classData || {};
    
     return (
-        <div>
+        <div className="bg-slate-200">
             <div className='w-[100%] h-[70px] '></div>
             <div className="w-[90%] md:w-[50%] mx-auto my-5">
                 <input onChange={(e)=>setsearch(e.target.value)} className="w-[100%] text-center bg-slate-300 rounded-md border outline-none" type="search" placeholder="Search by ClassName" name="search" id="" />
             </div>
-            <div className="w-[100%] grid md:grid-cols-3 gap-4 lg:grid-cols-4">
+            <div className="w-[90%] mx-auto grid md:grid-cols-2 gap-4 ">
             {
-                classData?.map(item=><Card className="w-[90%] mx-auto md:max-w-sm">
-                    <div className="flex justify-center md:px-4 pt-4">
-                      <img src={item?.image} className="w-[100px] h-[100px]" alt="" />
+                classData?.map(item=><div className=" rounded-md shadow-md shadow-slate-400  py-4">
+                    <div>
+                        <img className="w-[90%] mx-auto h-[250px] rounded-md" src={item?.image} alt="" />
                     </div>
-                    <div className="flex flex-col items-center pb-10">
-                      
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">ClassName:{item?.name}</h5>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">Class Details:{item?.details}</span>
-                      <div className="mt-4 flex space-x-3 lg:mt-6">
-                         
-                      </div>
+                    <div className="w-[90%] mx-auto">
+                         <h1 className="text-xl font-medium ">Class Name:{item?.name}</h1>
+                        <p className="text-xs">{item?.details}</p>
                     </div>
-                  </Card>)
+                </div>)
             }
             </div>
             <div className="w-[90%] md:w-[50%] mx-auto lg:translate-x-48 mt-4">
-                <button className="text-white border px-4 py-2 rounded-lg hover:bg-teal-500" onClick={()=>setSelectbtn(Selectbtn>0?Selectbtn-1:Selectbtn)}>Previous</button>
+                <button className="text-white font-medium border px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-400" onClick={()=>setSelectbtn(Selectbtn>0?Selectbtn-1:Selectbtn)}>Previous</button>
                 {
-                    pages.map(page=><button onClick={()=>setSelectbtn(page)} className={`text-white border px-4 py-2 mx-2 my-4 rounded-lg ${Selectbtn === page && 'bg-teal-500' || ''}`}>{page}</button>)
+                    pages.map(page=><button onClick={()=>setSelectbtn(page)} className={`text-black  border px-4 py-2 mx-2 my-4 rounded-lg ${Selectbtn === page && 'bg-teal-600' || 'bg-slate-300'}`}>{page}</button>)
                 }
-                <button className="text-white border px-4 py-2 rounded-lg hover:bg-teal-500" onClick={()=>setSelectbtn(Selectbtn<pages.length-1?Selectbtn+1:Selectbtn)}>Next</button>
+                <button className="text-white font-medium border px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-400" onClick={()=>setSelectbtn(Selectbtn<pages.length-1?Selectbtn+1:Selectbtn)}>Next</button>
             </div>
         </div>
     );

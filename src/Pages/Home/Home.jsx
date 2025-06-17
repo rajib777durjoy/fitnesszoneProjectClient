@@ -22,11 +22,8 @@ const Home = () => {
             <Banner></Banner>
             <Success></Success>
             <Features></Features>
-           
             <About></About>
-           
             <FeatureClass></FeatureClass>
-            
             <Testimonials></Testimonials>
             <TeamSection></TeamSection>
             <ForumPost></ForumPost>

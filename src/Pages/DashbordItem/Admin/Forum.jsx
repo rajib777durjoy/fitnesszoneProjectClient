@@ -27,7 +27,7 @@ const Forum = () => {
     const onSubmit = async (data) => {
         // console.log(data)
         const imagefile = { image: data.image[0] }
-        const res = await axiospublic.post(image_hosting_api, imagefile, {
+        const res = await axiospublic.post(image_hosting_api,imagefile, {
             headers: {
                 'content-type': 'multipart/form-data'
             }

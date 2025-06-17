@@ -8,10 +8,11 @@ import yoga from '../../../assets/Yoga.jpg'
 import bodyWeight from '../../../assets/Bodyweight.jpg'
 const Features = () => {
     return (
-        <div className='w-[100%]  min-h-[500px] py-10 mt-5 bg-slate-100 '>
+        <div className='w-[100%]  min-h-[500px] py-10 mt-5 bg-slate-200 '>
             <h1 className='text-4xl text-center font-bold mb-4'>Featured Section</h1>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 w-[90%]  mx-auto py-4 gap-4 '>
-                <Card className="" imgSrc={GuidedMeditation} vertical >
+                <Card className="" >
+                    <img src={GuidedMeditation} alt="" className='w-[90%] mx-auto h-[200px] rounded-md' />
                     <h5 className="lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Guided Meditation
                     </h5>
@@ -20,7 +21,8 @@ const Features = () => {
                         Icon/Image: A person meditating with a peaceful background
                     </p>
                 </Card>
-                <Card className="" imgSrc={Cardio} vertical >
+                <Card className="" >
+                    <img src={Cardio} alt="" className='w-[90%] mx-auto h-[200px] rounded-md' />
                     <h5 className="lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Cardio Workouts
                     </h5>

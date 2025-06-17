@@ -15,16 +15,18 @@ const FeatureClass = () => {
     })
    console.log('classlist',classlist)
     return (
-        <div className='w-[100%] bg-slate-100'>
+        <div className='w-[100%] bg-slate-200'>
             <h1 className=' text-center text-4xl font-bold py-10'>Features Class</h1>
             <div className='w-[90%] mx-auto grid md:grid-cols-3 gap-4 py-4'>
                {
                 classlist.slice(0,6).map(item=><Card key={item?._id}
                     className="max-w-sm"
                 >
+                    <button className='text-end text-2xl'>...</button>
                     <div className='w-[90%] mx-auto'>
-                        <img src={item?.image} alt="" className='w-[100%] h-[200px] '  />
+                        <img src={item?.image} alt="" className='w-[100%] h-[200px] rounded-md'  />
                     </div>
+                    
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {item?.name}
                     </h5>

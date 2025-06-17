@@ -15,7 +15,7 @@ const TeamSection = () => {
     })
     console.log(team)
     return (
-        <div className='w-[100%] min-h-[400px] py-10 bg-slate-100'>
+        <div className='w-[100%] min-h-[400px] py-10 bg-slate-200'>
            <h1 className=' text-center mb-4 text-4xl font-bold '>Team Section</h1>
            <div className='w-[90%] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
              {
